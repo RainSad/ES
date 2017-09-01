@@ -25,8 +25,8 @@ public class MyWebSocketInterceptor implements HandshakeInterceptor{
 			Map<String, Object> attributes) throws Exception {
 
 		//将ServerHttpRequest转换成request请求相关的类，用来获取request域中的用户信息
-		if(request instanceof ServletServerHttpRequest) {
-			ServletServerHttpRequest servletRequest = (ServletServerHttpRequest) request;
+//		if(request instanceof ServletServerHttpRequest) {
+//			ServletServerHttpRequest servletRequest = (ServletServerHttpRequest) request;
 			//获取httpRequest
 			//HttpServletRequest httpRequest = servletRequest.getServletRequest();
 			//获取reauest中存储的u用户数据
@@ -35,7 +35,7 @@ public class MyWebSocketInterceptor implements HandshakeInterceptor{
 //			HttpSession session = servletRequest.getServletRequest().getSession(false);
 //			UserInfo userInfo = (UserInfo) session.getAttribute("userInfo");
 //			attributes.put("userInfo", userInfo);
-		}
+//		}
 		return true;
 	}
 

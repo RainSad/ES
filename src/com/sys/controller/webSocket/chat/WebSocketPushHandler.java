@@ -48,7 +48,8 @@ public class WebSocketPushHandler implements WebSocketHandler {
 
 //		userInfo = (UserInfo) session.getAttributes().get("info");
 //		users.put(userInfo.getId(), session);
-		System.out.println(userInfo.getId() + "进入系统");
+//		System.out.println(userInfo.getId() + "进入系统");
+		System.out.println("进入系统");
 	}
 
 	/**
