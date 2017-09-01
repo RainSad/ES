@@ -40,7 +40,8 @@ public class Index {
 	@Autowired
 	private UserInfo userInfo;
 
-	@RequestMapping("index")
+	
+	@RequestMapping("/")
 	public String toIndex() {
 		return "index/index";
 	}

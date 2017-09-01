@@ -40,7 +40,7 @@ public class LogLogin {
 	 * 60.0.3112.90", "OS":"Windows NT", "QueryResult":1 } @return void   
 	 * 返回类型 @throws
 	 */
-	@RequestMapping("saveLoginInfo.shtml")
+	@RequestMapping("saveLoginInfo")
 	public @ResponseBody String logLoginInfo(@RequestParam(value = "info") String info, HttpServletRequest request,
 			ModelMap model) {
 		HttpSession session = request.getSession();
