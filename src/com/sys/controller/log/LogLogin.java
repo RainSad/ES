@@ -35,10 +35,13 @@ public class LogLogin {
 
 	/**
 	 * 
-	 * @Title:logLoginInfo @Description: TODO(这里用一句话描述这个方法的作用) @param     {
+	 * @Title:logLoginInfo
+	 *  @Description: TODO(这里用一句话描述这个方法的作用) 
+	 *  @param     {
 	 * "Ip":"119.79.149.180", "Isp":"湖北省武汉市 长城宽带", "Browser":"Google Chrome
-	 * 60.0.3112.90", "OS":"Windows NT", "QueryResult":1 } @return void   
-	 * 返回类型 @throws
+	 * 60.0.3112.90", "OS":"Windows NT", "QueryResult":1 } 
+	 * @return void   返回类型 
+	 * @throws
 	 */
 	@RequestMapping("saveLoginInfo")
 	public @ResponseBody String logLoginInfo(@RequestParam(value = "info") String info, HttpServletRequest request,

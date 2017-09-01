@@ -58,8 +58,8 @@ public class MysqlBaseDaoImp<T> implements BaseDao<T> {
 	public void update(T entity) {
 		String sql = this.makeSql(SQL_UPDATE);
 		Object[] args = this.setArgs(entity, SQL_UPDATE);
-		int[] argTypes = this.setArgTypes(entity, SQL_UPDATE);
-		jdbcTemplate.update(sql, args, argTypes);
+//		int[] argTypes = this.setArgTypes(entity, SQL_UPDATE);
+		jdbcTemplate.update(sql, args);
 	}
 
 	/**
@@ -69,8 +69,8 @@ public class MysqlBaseDaoImp<T> implements BaseDao<T> {
 	public void delete(T entity) {
 		String sql = this.makeSql(SQL_DELETE);
 		Object[] args = this.setArgs(entity, SQL_DELETE);
-		int[] argTypes = this.setArgTypes(entity, SQL_DELETE);
-		jdbcTemplate.update(sql, args, argTypes);
+//		int[] argTypes = this.setArgTypes(entity, SQL_DELETE);
+		jdbcTemplate.update(sql, args);
 
 	}
 
