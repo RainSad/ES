@@ -41,53 +41,93 @@ $.cookie('the_cookie', null);
 decodeURIComponent 解码）。要关闭这个功能设置 raw: true 即可。*/
 
 
+jQuery(function ($) {
 
+    // var url = 'http://chaxun.1616.net/s.php?type=ip&output=json&callback=?&_='
+    //
+    //     + Math.random();
+    //
+    //
+    //
+    // $.getJSON(url, function(data) {
+    //
+    //     alert(JSON.stringify(data));
+    //
+    //     var info = JSON.stringify(data);
+    //
+    // });
+    //
+    // saveLoginInfo(info);
 
-/*
-jQuery(function($) {
-
-    var url = 'http://chaxun.1616.net/s.php?type=ip&output=json&callback=?&_='
-
-        + Math.random();
-
-
-
-    $.getJSON(url, function(data) {
-
-        alert(JSON.stringify(data));
-
-        var info = JSON.stringify(data);
-
+    $("#file-1").fileinput({
+        uploadUrl: '#', // you must set a valid URL here else you will get an error
+        allowedFileExtensions : ['jpg', 'png','gif'],
+        overwriteInitial: false,
+        showUpload: false,
+        maxFileSize: 1000,
+        maxFilesNum: 10,
+        //allowedFileTypes: ['image', 'video', 'flash'],
+        slugCallback: function(filename) {
+            return filename.replace('(', '_').replace(']', '_');
+        }
     });
-
-    saveLoginInfo(info);
-
 });
 
-function saveLoginInfo(info){
-
-    $.ajax({
-
-        url : "saveLoginInfo.shtml",
-
-        data : info,
-
-        dataType : "json",
-
-        type : "post",
-
-        success : function(data){
-
-            if(data.Result == "success"){
-
-                alert("保存成功")
-
-            }
-
-        }
+$('#editor').summernote({
+    lang: 'zh-CN',
+    minHeight: 240,
+    disableLinkTarget : true
+});
 
 
+// function saveLoginInfo(info){
+//
+//     $.ajax({
+//
+//         url : "saveLoginInfo.shtml",
+//
+//         data : info,
+//
+//         dataType : "json",
+//
+//         type : "post",
+//
+//         success : function(data){
+//
+//             if(data.Result == "success"){
+//
+//                 alert("保存成功")
+//
+//             }
+//
+//         }
+//
+//
+//
+//     })
+//
+// }
 
-    })
+var model = Vue.extend({
+    template: '<div>asasasasas</div>'
+});
 
-}*/
+Vue.component('model', model);
+
+var vm = new Vue({
+    el: '#login',
+    mounted: function () {
+        $.getJSON("http://localhost:63342/WebContent/WEB-INF/view/index/1.txt", function (result) {
+            vm.result = result.data[0];
+        })
+    },
+    method: {},
+    data: {
+        seen: false,
+        result: {}
+    }
+});
+
+var vm2 = new Vue({
+    el: '#as'
+});
