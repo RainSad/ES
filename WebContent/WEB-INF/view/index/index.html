@@ -19,7 +19,7 @@
         <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="cpllapse" data-target="#navbar"
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
                             aria-expanded="false" aria-controls="navbar">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
@@ -46,10 +46,9 @@
                         <li class="navbar-left"></li>
                     </ul>
                     <ul id="login" class="nav navbar-nav pull-right">
-                        <li><a href="#">websecket测试</a></li>
-                        <li v-if="seen"><a href="toLogin.shtml">登录</a></li>
-                        <li v-if="seen"><a href="toRigister.shtml">注册</a></li>
-                        <li v-for="../../../result"><a href="#">{{../../../result.nickname}},已登陆！</a></li>
+                        <li v-if="seen"><a href="toLogin">登录</a></li>
+                        <li v-if="seen"><a href="toRigister">注册</a></li>
+                        <user></user>
                     </ul>
                 </div>
             </div>
@@ -164,7 +163,7 @@
             </p>
         </div>
         <div class="col-md-5">
-            <img src="../../../res/image/index/dex1.jpg" class="img-../../../responsive"/>
+            <img src="../../../res/image/index/dex1.jpg" class="img-responsive"/>
         </div>
     </div>
 
@@ -172,7 +171,7 @@
 
     <div class="row">
         <div class="col-md-5">
-            <img class="img-../../../responsive" src="../../../res/image/index/dex2.jpg">
+            <img class="img-responsive" src="../../../res/image/index/dex2.jpg">
         </div>
         <div class="col-md-7">
             <h2 class="featurette-heading">
@@ -204,7 +203,7 @@
             </p>
         </div>
         <div class="col-md-5">
-            <img src="../../../res/image/index/dex1.jpg" class="img-../../../responsive"/>
+            <img src="../../../res/image/index/dex1.jpg" class="img-responsive"/>
         </div>
     </div>
 
@@ -212,7 +211,7 @@
 
     <div class="row">
         <div class="col-md-5">
-            <img class="img-../../../responsive" src="../../../res/image/index/dex3.jpeg">
+            <img class="img-responsive" src="../../../res/image/index/dex3.jpeg">
         </div>
         <div class="col-md-7">
             <h2 class="featurette-heading">
@@ -242,59 +241,25 @@
     </footer>
 </div>
 <!-- 添加按钮 -->
-<div id="add../../../res" class="buttonDiv">
+<div id="addRes" class="buttonDiv">
     <a data-toggle="modal" id="exportModel" data-target="#myModal">
         <i class="glyphicon glyphicon-plus" style="font-size: 30px"></i>
-       
     </a>
 </div>
 <!--弹出层-->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    &times;
-                </button>
-                <h4 class="modal-title" id="myModalLabel">
-                    上传分享
-                </h4>
-            </div>
-            <div class="modal-body">
-                    <br>
-                    <form enctype="multipart/form-data">
-                        <div class="form-group">
-                            <input id="file-1" type="file" multiple class="file" data-overwrite-initial="false"
-                                   data-min-file-count="2">
-                        </div>
-                        <div id="editor">
-
-                        </div>
-                    </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭
-                </button>
-                <button type="button" class="btn btn-primary">
-                    上传
-                </button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal -->
-</div>
-<div id="as">
-    <model></model>
+<div id="modal">
+    <modal></modal>
 </div>
 
 <script src="../../../res/commom/easyui/plugins/jquery-3.2.1.min.js"></script>
 <script src="../../../res/commom/easyui/plugins/vue.min.js"></script>
-<script src="../../../res/commom/bootstrap3.3.7/js/bootstrap.min.js"></script>
 <script src="../../../res/commom/easyui/plugins/fileinput.js"></script>
 <script src="../../../res/commom/easyui/plugins/fileinput_locale_zh.js"></script>
 <script src="../../../res/commom/easyui/plugins/summernote/summernote.js"></script>
 <script src="../../../res/commom/easyui/plugins/summernote/lang/summernote-zh-CN.min.js"></script>
 <script src="../../../res/commom/easyui/plugins/jquery.cookie.js"></script>
 <script src="../../../res/js/index/index.js"></script>
+<script src="../../../res/commom/bootstrap3.3.7/js/bootstrap.min.js"></script>
 
 <script>
 

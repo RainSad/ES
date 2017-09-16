@@ -61,7 +61,7 @@ public class Index {
 		return "index/websockettest";
 	}
 
-	@RequestMapping("login.shtml")
+	@RequestMapping("index/login")
 	public String login(@RequestParam(value = "userName", defaultValue = "") String userName,
 			@RequestParam(value = "passWord", defaultValue = "") String passWord, ModelMap data,
 			HttpServletRequest request, ModelMap model) {

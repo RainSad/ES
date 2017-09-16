@@ -43,7 +43,7 @@ public class LogLogin {
 	 * @return void   返回类型 
 	 * @throws
 	 */
-	@RequestMapping("saveLoginInfo")
+	@RequestMapping("log/saveLoginInfo")
 	public @ResponseBody String logLoginInfo(@RequestParam(value = "info") String info, HttpServletRequest request,
 			ModelMap model) {
 		HttpSession session = request.getSession();
