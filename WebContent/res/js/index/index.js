@@ -43,9 +43,12 @@ decodeURIComponent 解码）。要关闭这个功能设置 raw: true 即可。*/
 jQuery(function () {
     initSummernote();
     initFileInput();
-
+    checkUser();
 });
 
+/**
+ * 得到用户登录地址等信息
+ */
 function initLoginInfo() {
     var url = 'http://chaxun.1616.net/s.php?type=ip&output=json&callback=?&_='
         + Math.random();
@@ -99,7 +102,7 @@ function initFileInput() {
 
         // 异步上传
         language: 'zh', // 设置语言
-        uploadUrl: '#', // 上传地址
+        uploadUrl: 'index/upload/img', // 上传地址
         showUpload: false, // 是否显示上传按钮
         showRemove: true,
         dropZoneEnabled: false,
@@ -112,31 +115,7 @@ function initFileInput() {
     });
 }
 
-function saveLoginInfo(info) {
 
-    $.ajax({
-
-        url: "log/saveLoginInfo",
-
-        data: info,
-
-        dataType: "json",
-
-        type: "post",
-
-        success: function (data) {
-
-            if (data.Result == "success") {
-
-                alert("保存成功")
-
-            }
-
-        }
-
-    })
-
-}
 
 // 弹出分享框
 /*
@@ -196,7 +175,13 @@ var modal = Vue
         + '    </div><!-- /.modal -->\n' + '</div>'
     });
 
-Vue.component('modal', modal);
+
+//创建组件用户名显示在主页
+var user = Vue.extend({
+    template: '<li><a>ssss</a></li>'
+});
+
+
 
 // 查找登陆用户
 var vm = new Vue({
@@ -206,30 +191,42 @@ var vm = new Vue({
         //     function (result) {
         //         vm.result = result.data[0];
         //     })
-        debugger;
-        var userInfo = $.parseJSON(getCookie("yourView_userInfo"));
-        if (userInfo != null && userInfo != undefined) {
-            vm.result = userInfo.data[0]
-        } else {
-            vm.seen = true;
-        }
-
     },
-    component: {
-        'user' : {
-            template: '<li><a>ssss</a></li>'
-        }
+    components: {
+        'user': user
+
     },
     method: {},
     data: {
-        seen: false,
+        seen: true,
+        user: false,
         result: {}
     }
 });
 
 var vm2 = new Vue({
-    el: '#modal'
+    el: '#modal',
+    components: {
+        'modal': modal
+
+    },
 });
+
+/**
+ * 验证用户是否登陆或是否登陆过期
+ */
+function checkUser() {
+    debugger;
+    var userInfo = $.parseJSON(getCookie("yourView_userInfo"));
+    if (userInfo != null && userInfo != undefined) {
+        vm.result = userInfo.data[0];
+        vm.user = true;
+        vm.seen = false
+    } else {
+        vm.seen = true;
+        vm.user = false;
+    }
+}
 
 /**
  * 得到用户存储的cookie信息
@@ -250,4 +247,23 @@ function getCookie(yourView_userInfo) {
     } else {
         return "error";
     }
+}
+
+/**
+ * 保存用户登陆地址等信息
+ * @param info
+ */
+function saveLoginInfo(info) {
+
+    $.ajax({
+        url: "log/saveLoginInfo",
+        data: info,
+        dataType: "json",
+        type: "post",
+        success: function (data) {
+            if (data.Result == "success") {
+                alert("保存成功")
+            }
+        }
+    })
 }
