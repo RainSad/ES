@@ -1,4 +1,4 @@
-package com.sys.service;
+package com.sys.service.user;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;

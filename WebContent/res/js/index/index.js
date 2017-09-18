@@ -107,11 +107,45 @@ function initFileInput() {
         showRemove: true,
         dropZoneEnabled: false,
         showCaption: true,// 是否显示标题
+        enctype : 'multipart/form-data',
         allowedPreviewTypes: ['image'],
         allowedFileTypes: ['image'],
         allowedFileExtensions: ['jpg', 'png'],
+        //minImageWidth: 50, //图片的最小宽度
+        //minImageHeight: 50,//图片的最小高度
+        //maxImageWidth: 1000,//图片的最大宽度
+        //maxImageHeight: 1000,//图片的最大高度
+        //maxFileSize: 0,//单位为kb，如果为0表示不限制文件大小
         maxFileCount: 8,
         maxImageWidth: "300px"
+    });
+    //异步上传返回结果处理
+    $('#file-1').on('fileerror', function(event, data, msg) {
+        console.log("fileerror");
+        console.log(data);
+    });
+    //异步上传返回结果处理
+    $("#file-1").on("fileuploaded", function(event, data, previewId, index) {
+        console.log(data.response.url);
+
+    });
+
+//    //同步上传错误处理
+//    $('#file-1').on('filebatchuploaderror', function(event, data, msg) {
+//        console.log("filebatchuploaderror");
+//        console.log(data);
+//    });
+//
+//    //同步上传返回结果处理
+//    $("#file-1").on("filebatchuploadsuccess",
+//            function(event, data, previewId, index) {
+//                console.log("filebatchuploadsuccess");
+//                console.log(data);
+//            });
+
+    //上传前
+    $('.myfile').on('filepreupload', function(event, data, previewId, index) {
+        console.log("filepreupload");
     });
 }
 
@@ -157,7 +191,7 @@ var modal = Vue
         + '                    <br>\n'
         + '                    <label for="name">选择图片</label>\n'
         + '                    <div class="form-group">\n'
-        + '                        <input id="file-1" type="file" multiple>\n'
+        + '                        <input name="img" id="file-1" type="file" multiple>\n'
         + '                    </div>\n'
         + '                    <br>\n'
         + '                    <label for="name">编辑文字</label>\n'
@@ -216,7 +250,6 @@ var vm2 = new Vue({
  * 验证用户是否登陆或是否登陆过期
  */
 function checkUser() {
-    debugger;
     var userInfo = $.parseJSON(getCookie("yourView_userInfo"));
     if (userInfo != null && userInfo != undefined) {
         vm.result = userInfo.data[0];
@@ -250,7 +283,7 @@ function getCookie(yourView_userInfo) {
 }
 
 /**
- * 保存用户登陆地址等信息
+ * 保存用户登陆地址等log信息
  * @param info
  */
 function saveLoginInfo(info) {

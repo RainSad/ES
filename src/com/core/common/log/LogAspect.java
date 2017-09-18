@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.sys.entity.user.UserLog;
-import com.sys.service.UserLogService;
+import com.sys.service.user.UserLogService;
 
 /**
  * 
