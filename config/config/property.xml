@@ -9,6 +9,8 @@
 			<list>
 				<!-- jdbc配置 -->
 				<value>classpath:properties/jdbc.properties</value>
+				<!-- 文件存储地址配置 -->
+				<value>classpath:properties/workDir.properties</value>
 			</list>
 		</property>
 	</bean>

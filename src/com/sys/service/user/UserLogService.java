@@ -1,4 +1,4 @@
-package com.sys.service;
+package com.sys.service.user;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -6,16 +6,16 @@ import java.lang.reflect.Type;
 import org.springframework.stereotype.Service;
 
 import com.core.dao.MysqlBaseDaoImp;
-import com.sys.entity.user.UserOperation;
+import com.sys.entity.user.UserLog;
 
 @Service
-public class UserOperationService extends MysqlBaseDaoImp<UserOperation>{
+public class UserLogService extends MysqlBaseDaoImp<UserLog>{
 
 	@SuppressWarnings("unchecked")
-	public UserOperationService() {
+	public UserLogService() {
 		Type superclass = getClass().getGenericSuperclass();
 	    ParameterizedType type = (ParameterizedType) superclass;
-	    entityClass = (Class<UserOperation>) type.getActualTypeArguments()[0];
+	    entityClass = (Class<UserLog>) type.getActualTypeArguments()[0];
 	}
 
 	

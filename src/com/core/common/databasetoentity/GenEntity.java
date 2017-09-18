@@ -8,6 +8,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Date;
 
+import com.core.common.sqltool.CamelCharOrUnderLine;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSetMetaData;
@@ -22,9 +23,9 @@ import com.mysql.jdbc.ResultSetMetaData;
  */
 public class GenEntity {
 
-	private String packageOutPath = "com.sys.entity";// 指定实体生成所在包的路径
+	private String packageOutPath = "com.sys.entity.index";// 指定实体生成所在包的路径
 	private String authorName = "孙文祥";// 作者名字
-	private String tablename = "user_operation";// 表名
+	private String tablename = "view_share";// 表名
 	private String[] colnames; // 列名数组
 	private String[] colTypes; // 列名类型数组
 	private int[] colSizes; // 列名大小数组
@@ -149,7 +150,7 @@ public class GenEntity {
         private void processAllAttrs(StringBuffer sb) {  
               
             for (int i = 0; i < colnames.length; i++) {  
-                sb.append("\tprivate " + sqlType2JavaType(colTypes[i]) + " " + colnames[i] + ";\r\n");  
+                sb.append("\tprivate " + sqlType2JavaType(colTypes[i]) + " " + CamelCharOrUnderLine.underlineToCamel(colnames[i]) + ";\r\n");  
             }  
               
         }  
@@ -160,12 +161,12 @@ public class GenEntity {
             private void processAllMethod(StringBuffer sb) {  
                   
                 for (int i = 0; i < colnames.length; i++) {  
-                    sb.append("\tpublic void set" + initcap(colnames[i]) + "(" + sqlType2JavaType(colTypes[i]) + " " +   
-                            colnames[i] + "){\r\n");  
-                    sb.append("\tthis." + colnames[i] + "=" + colnames[i] + ";\r\n");  
+                    sb.append("\tpublic void set" + initcap(CamelCharOrUnderLine.underlineToCamel(colnames[i])) + "(" + sqlType2JavaType(colTypes[i]) + " " +   
+                            CamelCharOrUnderLine.underlineToCamel(colnames[i]) + "){\r\n");  
+                    sb.append("\tthis." + CamelCharOrUnderLine.underlineToCamel(colnames[i]) + "=" + CamelCharOrUnderLine.underlineToCamel(colnames[i]) + ";\r\n");  
                     sb.append("\t}\r\n");  
-                    sb.append("\tpublic " + sqlType2JavaType(colTypes[i]) + " get" + initcap(colnames[i]) + "(){\r\n");  
-                    sb.append("\t\treturn " + colnames[i] + ";\r\n");  
+                    sb.append("\tpublic " + sqlType2JavaType(colTypes[i]) + " get" + initcap(CamelCharOrUnderLine.underlineToCamel(colnames[i])) + "(){\r\n");  
+                    sb.append("\t\treturn " + CamelCharOrUnderLine.underlineToCamel(colnames[i]) + ";\r\n");  
                     sb.append("\t}\r\n");  
                 }  
                   

@@ -3,7 +3,6 @@ package com.sys.controller.log;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -21,7 +20,7 @@ import com.core.common.canstant.Canstant;
 import com.core.common.sqltool.IdToolUtil;
 import com.sys.entity.user.UserInfo;
 import com.sys.entity.user.UserLog;
-import com.sys.service.UserLogService;
+import com.sys.service.user.UserLogService;
 
 @Controller
 public class LogLogin {
@@ -35,37 +34,38 @@ public class LogLogin {
 
 	/**
 	 * 
-	 * @Title:logLoginInfo
-	 *  @Description: TODO(这里用一句话描述这个方法的作用) 
-	 *  @param     {
+	 * @Title:logLoginInfo 
+	 * @Description: 
+	 * @param     {
 	 * "Ip":"119.79.149.180", "Isp":"湖北省武汉市 长城宽带", "Browser":"Google Chrome
 	 * 60.0.3112.90", "OS":"Windows NT", "QueryResult":1 } 
 	 * @return void   返回类型 
 	 * @throws
 	 */
 	@RequestMapping("log/saveLoginInfo")
-	public @ResponseBody String logLoginInfo(@RequestParam(value = "info") String info, HttpServletRequest request,
+	@ResponseBody
+	public String logLoginInfo(@RequestParam(value = "info") String info, HttpServletRequest request,
 			ModelMap model) {
 		HttpSession session = request.getSession();
 		UserInfo userInfo = (UserInfo) session.getAttribute("userInfo");
 		Object isLogin = session.getAttribute(Canstant.IS_LOGIN);
 		JSONObject obj = JSON.parseObject(info);
-		String UserLogId = IdToolUtil.getUUID();//保存数据库的id 记录下来后面可能会用到
+		String UserLogId = IdToolUtil.getUUID();// 保存数据库的id 记录下来后面可能会用到
 		// 登陆用户的插入操作 插入用户【id】和用户名【username】
 		if (userInfo != null && isLogin == null) {
-			UserLog userLog = getUserLog(obj, userInfo , UserLogId);
+			UserLog userLog = getUserLog(obj, userInfo, UserLogId);
 			userLogService.save(userLog);
 			session.setAttribute(Canstant.IS_LOGIN, "logined");
 log.debug("  [DEBUG ]" + info + "已保存到数据库");
-			return "{'result' : 'success' , 'userName' : '"+userLog.getUserName()+"'}";
+			return "{'result' : 'success' , 'userName' : '" + userLog.getUserName() + "'}";
 		}
 		// 未登录用户的插入插座，插入用户名 【游客】
 		if (userInfo == null && isLogin == null) {
-			UserLog userLog = getUserLog(obj, userInfo , UserLogId);
-			userLog.setUserName("游客");//游客登陆
+			UserLog userLog = getUserLog(obj, userInfo, UserLogId);
+			userLog.setUserName("游客");// 游客登陆
 			userLogService.save(userLog);
 log.debug("  [DEBUG ]" + info + "已保存到数据库  =====");
-			return "{'result' : 'success' , 'userName' : '"+userLog.getUserName()+"' }";
+			return "{'result' : 'success' , 'userName' : '" + userLog.getUserName() + "' }";
 		}
 		return "{'Result' : ''}";
 	}
