@@ -40,21 +40,21 @@ $.cookie('the_cookie', null);
 默认情况下，读取和写入 cookie 的时候自动进行编码和解码（使用encodeURIComponent 编码， 
 decodeURIComponent 解码）。要关闭这个功能设置 raw: true 即可。*/
 
-jQuery(function () {
-    initSummernote();
-    initFileInput();
-    checkUser();
+jQuery(function() {
+	initSummernote();
+	initFileInput();
+	checkUser();
 });
 
 /**
  * 得到用户登录地址等信息
  */
 function initLoginInfo() {
-    var url = 'http://chaxun.1616.net/s.php?type=ip&output=json&callback=?&_='
-        + Math.random();
-    $.getJSON(url, function (data) {
-        saveLoginInfo(JSON.stringify(data));
-    });
+	var url = 'http://chaxun.1616.net/s.php?type=ip&output=json&callback=?&_='
+			+ Math.random();
+	$.getJSON(url, function(data) {
+		saveLoginInfo(JSON.stringify(data));
+	});
 
 }
 
@@ -62,94 +62,94 @@ function initLoginInfo() {
  * 初始化summernote
  */
 function initSummernote() {
-    $('#editor')
-        .summernote(
-            {
-                lang: 'zh-CN',
-                minHeight: 240,
-                disableLinkTarget: true,
-                dialogsFade: true,
-                placeholder: '请输入描述文字，嗯，没错，就是你想的那样.....',
-                toolbar: [
-                    // [groupName, [list of button]]
-                    ['style', ['bold', 'italic', 'underline', 'clear']],
-                    ['font', ['strikethrough', 'superscript', 'subscript']],
-                    ['fontsize', ['fontsize']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['height', ['height']],],
-            });
+	$('#editor')
+			.summernote(
+					{
+						lang : 'zh-CN',
+						minHeight : 240,
+						disableLinkTarget : true,
+						dialogsFade : true,
+						placeholder : '请输入描述文字，嗯，没错，就是你想的那样.....',
+						toolbar : [
+								// [groupName, [list of button]]
+								[
+								  'style',[ 'bold', 'italic', 'underline','clear' ] ],
+								[
+								  'font',[ 'strikethrough', 'superscript','subscript' ] ],
+								[ 'fontsize', [ 'fontsize' ] ],
+								[ 'color', [ 'color' ] ],
+								[ 'para', [ 'ul', 'ol', 'paragraph' ] ],
+								[ 'height', [ 'height' ] ], ],
+					});
 }
 
 /**
  * 初始化fileinput
  */
 function initFileInput() {
-    $("#file-1").fileinput({
+	$("#file-1").fileinput({
 
-        // 同步提交
-        // language: 'zh', //设置语言
-        // showUpload: false, //是否显示上传按钮
-        // showRemove:true,
-        // dropZoneEnabled: false,
-        // showCaption: true,//是否显示标题
-        // allowedPreviewTypes: ['image'],
-        // allowedFileTypes: ['image'],
-        // allowedFileExtensions: ['jpg', 'png','gif'],
-        // maxFileSize : 2000,
-        // maxFileCount: 8,
-        // uploadAsync: false, //同步上传
+		// 同步提交
+		// language: 'zh', //设置语言
+		// showUpload: false, //是否显示上传按钮
+		// showRemove:true,
+		// dropZoneEnabled: false,
+		// showCaption: true,//是否显示标题
+		// allowedPreviewTypes: ['image'],
+		// allowedFileTypes: ['image'],
+		// allowedFileExtensions: ['jpg', 'png','gif'],
+		// maxFileSize : 2000,
+		// maxFileCount: 8,
+		// uploadAsync: false, //同步上传
 
-        // 异步上传
-        language: 'zh', // 设置语言
-        uploadUrl: 'index/upload/img', // 上传地址
-        showUpload: false, // 是否显示上传按钮
-        showRemove: true,
-        dropZoneEnabled: false,
-        showCaption: true,// 是否显示标题
-        enctype : 'multipart/form-data',
-        allowedPreviewTypes: ['image'],
-        allowedFileTypes: ['image'],
-        allowedFileExtensions: ['jpg', 'png'],
-        //minImageWidth: 50, //图片的最小宽度
-        //minImageHeight: 50,//图片的最小高度
-        //maxImageWidth: 1000,//图片的最大宽度
-        //maxImageHeight: 1000,//图片的最大高度
-        //maxFileSize: 0,//单位为kb，如果为0表示不限制文件大小
-        maxFileCount: 8,
-        maxImageWidth: "300px"
-    });
-    //异步上传返回结果处理
-    $('#file-1').on('fileerror', function(event, data, msg) {
-        console.log("fileerror");
-        console.log(data);
-    });
-    //异步上传返回结果处理
-    $("#file-1").on("fileuploaded", function(event, data, previewId, index) {
-        console.log(data.response.url);
+		// 异步上传
+		language : 'zh', // 设置语言
+		uploadUrl : 'index/upload/img', // 上传地址
+		showUpload : false, // 是否显示上传按钮
+		showRemove : true,
+		dropZoneEnabled : false,
+		showCaption : true,// 是否显示标题
+		enctype : 'multipart/form-data',
+		allowedPreviewTypes : [ 'image' ],
+		allowedFileTypes : [ 'image' ],
+		allowedFileExtensions : [ 'jpg', 'png' ],
+		// minImageWidth: 50, //图片的最小宽度
+		// minImageHeight: 50,//图片的最小高度
+		// maxImageWidth: 1000,//图片的最大宽度
+		// maxImageHeight: 1000,//图片的最大高度
+		// maxFileSize: 0,//单位为kb，如果为0表示不限制文件大小
+		maxFileCount : 8,
+		maxImageWidth : "300px"
+	});
+	// 异步上传返回结果处理
+	$('#file-1').on('fileerror', function(event, data, msg) {
+		console.log("fileerror");
+		console.log(data);
+	});
+	// 异步上传返回结果处理
+	$("#file-1").on("fileuploaded", function(event, data, previewId, index) {
+		console.log(data.response.url);
 
-    });
+	});
 
-//    //同步上传错误处理
-//    $('#file-1').on('filebatchuploaderror', function(event, data, msg) {
-//        console.log("filebatchuploaderror");
-//        console.log(data);
-//    });
-//
-//    //同步上传返回结果处理
-//    $("#file-1").on("filebatchuploadsuccess",
-//            function(event, data, previewId, index) {
-//                console.log("filebatchuploadsuccess");
-//                console.log(data);
-//            });
+	// //同步上传错误处理
+	// $('#file-1').on('filebatchuploaderror', function(event, data, msg) {
+	// console.log("filebatchuploaderror");
+	// console.log(data);
+	// });
+	//
+	// //同步上传返回结果处理
+	// $("#file-1").on("filebatchuploadsuccess",
+	// function(event, data, previewId, index) {
+	// console.log("filebatchuploadsuccess");
+	// console.log(data);
+	// });
 
-    //上传前
-    $('.myfile').on('filepreupload', function(event, data, previewId, index) {
-        console.log("filepreupload");
-    });
+	// 上传前
+	$('.myfile').on('filepreupload', function(event, data, previewId, index) {
+		console.log("filepreupload");
+	});
 }
-
-
 
 // 弹出分享框
 /*
@@ -169,134 +169,170 @@ function initFileInput() {
  * /.modal-content --> </div><!-- /.modal --> </div>
  */
 var modal = Vue
-    .extend({
-        template: '<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">\n'
-        + '    <div class="modal-dialog">\n'
-        + '        <div class="modal-content">\n'
-        + '            <div class="modal-header">\n'
-        + '                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">\n'
-        + '                    &times;\n'
-        + '                </button>\n'
-        + '                <h4 class="modal-title" id="myModalLabel">\n'
-        + '                    上传分享\n'
-        + '                </h4>\n'
-        + '            </div>\n'
-        + '            <div class="modal-body">\n'
-        + '                <form enctype="multipart/form-data">\n'
-        + '                    <div class="form-group">\n'
-        + '                        <label for="name">输入标题</label>\n'
-        + '                        <input type="text" class="form-control" id="name"\n'
-        + '                               placeholder="请输入分享标题，越夸张越好...">\n'
-        + '                    </div>\n'
-        + '                    <br>\n'
-        + '                    <label for="name">选择图片</label>\n'
-        + '                    <div class="form-group">\n'
-        + '                        <input name="img" id="file-1" type="file" multiple>\n'
-        + '                    </div>\n'
-        + '                    <br>\n'
-        + '                    <label for="name">编辑文字</label>\n'
-        + '                    <div id="editor"></div>\n'
-        + '                </form>\n'
-        + '            </div>\n'
-        + '            <div class="modal-footer">\n'
-        + '                <button type="button" class="btn btn-default" data-dismiss="modal">关闭\n'
-        + '                </button>\n'
-        + '                <button type="button" class="btn btn-primary">\n'
-        + '                    上传\n'
-        + '                </button>\n'
-        + '            </div>\n'
-        + '        </div><!-- /.modal-content -->\n'
-        + '    </div><!-- /.modal -->\n' + '</div>'
-    });
+		.extend({
+			template : '<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">\n'
+					+ '    <div class="modal-dialog">\n'
+					+ '        <div class="modal-content">\n'
+					+ '            <div class="modal-header">\n'
+					+ '                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">\n'
+					+ '                    &times;\n'
+					+ '                </button>\n'
+					+ '                <h4 class="modal-title" id="myModalLabel">\n'
+					+ '                    上传分享\n'
+					+ '                </h4>\n'
+					+ '            </div>\n'
+					+ '            <div class="modal-body">\n'
+					+ '                <form enctype="multipart/form-data">\n'
+					+ '                    <div class="form-group">\n'
+					+ '                        <label for="name">输入标题</label>\n'
+					+ '                        <input type="text" class="form-control" name="title" id="title"\n'
+					+ '                               placeholder="请输入分享标题，越夸张越好...">\n'
+					+ '                    </div>\n'
+					+ '                    <br>\n'
+					+ '                    <label for="name">选择图片</label>\n'
+					+ '                    <div class="form-group">\n'
+					+ '                        <input name="img" id="file-1" type="file" multiple>\n'
+					+ '                    </div>\n'
+					+ '                    <br>\n'
+					+ '                    <label for="name">编辑文字</label>\n'
+					+ '                    <div id="editor"></div>\n'
+					+ '                </form>\n'
+					+ '            </div>\n'
+					+ '            <div class="modal-footer">\n'
+					+ '                <button type="button" class="btn btn-default" data-dismiss="modal">关闭\n'
+					+ '                </button>\n'
+					+ '                <button onclick="viewShareSubmit()" type="button" class="btn btn-primary">\n'
+					+ '                    上传\n'
+					+ '                </button>\n'
+					+ '            </div>\n'
+					+ '        </div><!-- /.modal-content -->\n'
+					+ '    </div><!-- /.modal -->\n' + '</div>'
+		});
 
-
-//创建组件用户名显示在主页
+// 创建组件用户名显示在主页
 var user = Vue.extend({
-    template: '<li><a>ssss</a></li>'
+	template : '<li><a>ssss</a></li>'
 });
-
-
 
 // 查找登陆用户
 var vm = new Vue({
-    el: '#login',
-    mounted: function () {
-        // $.getJSON("http://localhost:63342/WebContent/WEB-INF/view/index/1.txt",
-        //     function (result) {
-        //         vm.result = result.data[0];
-        //     })
-    },
-    components: {
-        'user': user
+	el : '#login',
+	mounted : function() {
+		// $.getJSON("http://localhost:63342/WebContent/WEB-INF/view/index/1.txt",
+		// function (result) {
+		// vm.result = result.data[0];
+		// })
+	},
+	components : {
+		'user' : user
 
-    },
-    method: {},
-    data: {
-        seen: true,
-        user: false,
-        result: {}
-    }
+	},
+	method : {},
+	data : {
+		seen : true,
+		user : false,
+		result : {}
+	}
 });
 
 var vm2 = new Vue({
-    el: '#modal',
-    components: {
-        'modal': modal
+	el : '#modal',
+	components : {
+		'modal' : modal
+	},
+	method:{
+		
+	},
+	mounted : function() {
+		this.$nextTick(function() {
+			$('#myModal').bootstrapValidator({
+				message : '这个还是需要填写的...',
+				feedbackIcons : {
+					valid : 'glyphicon glyphicon-ok',
+					invalid : 'glyphicon glyphicon-remove',
+					validating : 'glyphicon glyphicon-refresh'
+				},
+				fields : {
+					'title' : {
+						validators : {
+							notEmpty : {
+								message : '这个还是需要填写的...'
+							},
+							stringLength : {
+								min : 6,
+								max : 30,
+								message : '多几个字吧，不要大于30个就行'
+							}
+						}
 
-    },
+					}
+				}
+			});
+		})
+	}
 });
 
 /**
  * 验证用户是否登陆或是否登陆过期
  */
 function checkUser() {
-    var userInfo = $.parseJSON(getCookie("yourView_userInfo"));
-    if (userInfo != null && userInfo != undefined) {
-        vm.result = userInfo.data[0];
-        vm.user = true;
-        vm.seen = false
-    } else {
-        vm.seen = true;
-        vm.user = false;
-    }
+	var userInfo = $.parseJSON(getCookie("yourView_userInfo"));
+	if (userInfo != null && userInfo != undefined) {
+		vm.result = userInfo.data[0];
+		vm.user = true;
+		vm.seen = false
+	} else {
+		vm.seen = true;
+		vm.user = false;
+	}
 }
 
 /**
  * 得到用户存储的cookie信息
+ * 
  * @returns {string}
  */
 function getCookie(yourView_userInfo) {
 
-    //测试，手动写入cookies；
-    //创建一个cookie并设置有效时间为 7天
-    //先删除
-    $.cookie('yourView_userInfo', null);
-    $.cookie('yourView_userInfo', '{"data":[{"content":"很不错嘛","id":1,"nickname":"纳尼"},{"content":"哟西哟西","id":2,"nickname":"小强"}]}', {expires: 7});
+	// 测试，手动写入cookies；
+	// 创建一个cookie并设置有效时间为 7天
+	// 先删除
+	$.cookie('yourView_userInfo', null);
+	// $.cookie('yourView_userInfo',
+	// '{"data":[{"content":"很不错嘛","id":1,"nickname":"纳尼"},{"content":"哟西哟西","id":2,"nickname":"小强"}]}',
+	// {expires: 7});
 
+	var userInfo = $.cookie(yourView_userInfo); // cookie存在 => 'the_value'
+	if (userInfo != null && userInfo.length > 0) {
+		return userInfo;
+	} else {
+		return "error";
+	}
+}
 
-    var userInfo = $.cookie(yourView_userInfo); // cookie存在 => 'the_value'
-    if (userInfo != null && userInfo.length > 0) {
-        return userInfo;
-    } else {
-        return "error";
-    }
+function viewShareSubmit() {
+	var bootstrapValidator = $("#myModal").data("bootstrapValidator");
+	bootstrapValidator.validate();
+	var result = bootstrapValidator.isValid();
+	alert(result);
 }
 
 /**
  * 保存用户登陆地址等log信息
+ * 
  * @param info
  */
 function saveLoginInfo(info) {
 
-    $.ajax({
-        url: "log/saveLoginInfo",
-        data: info,
-        dataType: "json",
-        type: "post",
-        success: function (data) {
-            if (data.Result == "success") {
-                alert("保存成功")
-            }
-        }
-    })
+	$.ajax({
+		url : "log/saveLoginInfo",
+		data : info,
+		dataType : "json",
+		type : "post",
+		success : function(data) {
+			if (data.Result == "success") {
+				alert("保存成功")
+			}
+		}
+	})
 }
