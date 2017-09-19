@@ -47,6 +47,6 @@ public class LogAspect {
 
 	@Before("controllerAspect()")
 	public void controllerBeforeShow(JoinPoint jp) {
-		System.out.println("--");
+		System.out.println("---------------------------------------------------------------");
 	}
 }

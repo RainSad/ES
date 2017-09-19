@@ -39,9 +39,16 @@ public class ViewShareService extends MysqlBaseDaoImp<ViewShare> {
 
 	/**
 	 * 
-	 * @Description: 图片异步上传 @Title: uploadImg @param @param
-	 * img @param @return @param @throws IllegalStateException @param @throws
-	 * IOException    设定文件 @return Map<String,Object>    返回类型 @throws
+	 * @Description: 图片异步上传 
+	 * @Title: uploadImg 
+	 * @param 
+	 * @param img @param 
+	 * @return 
+	 * @param 
+	 * @throws IllegalStateException 
+	 * @param @throws IOException    设定文件
+	 * @return Map<String,Object>    返回类型
+	 * @throws
 	 */
 	public Map<String, Object> uploadImg(MultipartFile img) throws IllegalStateException, IOException {
 
@@ -68,5 +75,17 @@ public class ViewShareService extends MysqlBaseDaoImp<ViewShare> {
 			log.debug("图片上传失败，图片不合法");
 			return map;
 		}
+	}
+	
+	/**
+	 * 得到唯一id
+	* @Description: 
+	* @Title: getUUID 
+	* @param @return    设定文件 
+	* @return String    返回类型 
+	* @throws
+	 */
+	public String getID() {
+		return IdToolUtil.getUUID();
 	}
 }

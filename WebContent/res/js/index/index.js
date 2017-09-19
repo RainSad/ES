@@ -73,9 +73,13 @@ function initSummernote() {
 						toolbar : [
 								// [groupName, [list of button]]
 								[
-								  'style',[ 'bold', 'italic', 'underline','clear' ] ],
+										'style',
+										[ 'bold', 'italic', 'underline',
+												'clear' ] ],
 								[
-								  'font',[ 'strikethrough', 'superscript','subscript' ] ],
+										'font',
+										[ 'strikethrough', 'superscript',
+												'subscript' ] ],
 								[ 'fontsize', [ 'fontsize' ] ],
 								[ 'color', [ 'color' ] ],
 								[ 'para', [ 'ul', 'ol', 'paragraph' ] ],
@@ -151,97 +155,56 @@ function initFileInput() {
 	});
 }
 
-// 弹出分享框
-/*
- * <div class="modal fade" id="myModal" tabindex="-1" role="dialog"
- * aria-labelledby="myModalLabel" aria-hidden="true"> <div class="modal-dialog">
- * <div class="modal-content"> <div class="modal-header"> <button type="button"
- * class="close" data-dismiss="modal" aria-hidden="true"> &times; </button>
- * <h4 class="modal-title" id="myModalLabel"> 上传分享 </h4> </div> <div
- * class="modal-body"> <form enctype="multipart/form-data"> <div
- * class="form-group"> <label for="name">输入标题</label> <input type="text"
- * class="form-control" id="name" placeholder="请输入分享标题，越夸张越好..."> </div> <br>
- * <label for="name">选择图片</label> <div class="form-group"> <input id="file-1"
- * type="file" multiple> </div> <br> <label for="name">编辑文字</label> <div
- * id="editor"></div> </form> </div> <div class="modal-footer"> <button
- * type="button" class="btn btn-default" data-dismiss="modal">关闭 </button>
- * <button type="button" class="btn btn-primary"> 上传 </button> </div> </div><!--
- * /.modal-content --> </div><!-- /.modal --> </div>
- */
-var modal = Vue
-		.extend({
-			template : '<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">\n'
-					+ '    <div class="modal-dialog">\n'
-					+ '        <div class="modal-content">\n'
-					+ '            <div class="modal-header">\n'
-					+ '                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">\n'
-					+ '                    &times;\n'
-					+ '                </button>\n'
-					+ '                <h4 class="modal-title" id="myModalLabel">\n'
-					+ '                    上传分享\n'
-					+ '                </h4>\n'
-					+ '            </div>\n'
-					+ '            <div class="modal-body">\n'
-					+ '                <form enctype="multipart/form-data">\n'
-					+ '                    <div class="form-group">\n'
-					+ '                        <label for="name">输入标题</label>\n'
-					+ '                        <input type="text" class="form-control" name="title" id="title"\n'
-					+ '                               placeholder="请输入分享标题，越夸张越好...">\n'
-					+ '                    </div>\n'
-					+ '                    <br>\n'
-					+ '                    <label for="name">选择图片</label>\n'
-					+ '                    <div class="form-group">\n'
-					+ '                        <input name="img" id="file-1" type="file" multiple>\n'
-					+ '                    </div>\n'
-					+ '                    <br>\n'
-					+ '                    <label for="name">编辑文字</label>\n'
-					+ '                    <div id="editor"></div>\n'
-					+ '                </form>\n'
-					+ '            </div>\n'
-					+ '            <div class="modal-footer">\n'
-					+ '                <button type="button" class="btn btn-default" data-dismiss="modal">关闭\n'
-					+ '                </button>\n'
-					+ '                <button onclick="viewShareSubmit()" type="button" class="btn btn-primary">\n'
-					+ '                    上传\n'
-					+ '                </button>\n'
-					+ '            </div>\n'
-					+ '        </div><!-- /.modal-content -->\n'
-					+ '    </div><!-- /.modal -->\n' + '</div>'
-		});
-
-// 创建组件用户名显示在主页
-var user = Vue.extend({
-	template : '<li><a>ssss</a></li>'
-});
-
 // 查找登陆用户
 var vm = new Vue({
 	el : '#login',
-	mounted : function() {
-		// $.getJSON("http://localhost:63342/WebContent/WEB-INF/view/index/1.txt",
-		// function (result) {
-		// vm.result = result.data[0];
-		// })
-	},
 	components : {
-		'user' : user
 
 	},
 	method : {},
 	data : {
 		seen : true,
 		user : false,
-		result : {}
+		result : {
+			nickName : "孙文祥"
+		}
 	}
 });
 
 var vm2 = new Vue({
-	el : '#modal',
+	el : '#myModal',
 	components : {
-		'modal' : modal
+
 	},
-	method:{
-		
+	methods : {
+		viewShareSubmit : function() {
+			//从后台加载id
+			getIndexUploadId();
+			// 验证输入
+			var bootstrapValidator = $("#myModal").data("bootstrapValidator");
+			//校验
+			bootstrapValidator.validate();
+			//得到校验结果 true or false
+			var result = bootstrapValidator.isValid();
+			// 得到输入值
+			var titleInput = $("#title").val();
+			var messageDetail = $('#editor').summernote('code');
+			if (result) {
+				var dataTemp = {
+					'titleInput' : titleInput,
+					'messageDetail' : messageDetail
+				}
+				this.info = dataTemp;
+				$('#delcfmModel').modal();
+				$('#myModal').modal("hide");
+			}
+		}
+
+	},
+	data : {
+		info : {
+			id : ""
+		}
 	},
 	mounted : function() {
 		this.$nextTick(function() {
@@ -269,6 +232,28 @@ var vm2 = new Vue({
 				}
 			});
 		})
+	}
+});
+
+var vm3 = new Vue({
+	el : "#delcfmModel",
+	methods : {
+		submit : function() {
+			AjaxSubmit("index/upload/message", vm2.info);
+			$('#delcfmModel').modal('hide')
+		},
+		cancel : function() {
+			$('#delcfmModel').modal('hide');
+			$('#myModal').modal("show");
+		}
+	},
+	data : {
+		info : {
+			"header" : "提示",
+			"message" : "确定不再写点了吗？",
+			"cancel" : "再写点",
+			"confirm" : "确定"
+		}
 	}
 });
 
@@ -310,13 +295,30 @@ function getCookie(yourView_userInfo) {
 	}
 }
 
-function viewShareSubmit() {
-	var bootstrapValidator = $("#myModal").data("bootstrapValidator");
-	bootstrapValidator.validate();
-	var result = bootstrapValidator.isValid();
-	alert(result);
+function AjaxSubmit(url, info) {
+	$.ajax({
+		url : url,
+		data : info,
+		dataType : "json",
+		type : "post",
+		success : function(data) {
+			if (data.Result == "success") {
+				vm.user = true;
+				vm.seen = false
+			}
+		}
+	})
 }
-
+function getIndexUploadId(){
+	$.getJSON("index/upload/getId", function(data) {
+		debugger;
+		alert(data);
+		if(data.status == 1){
+			vm2.info.id =data.data.id
+		}
+		
+	});
+}
 /**
  * 保存用户登陆地址等log信息
  * 
