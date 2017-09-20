@@ -96,8 +96,10 @@ public class Index {
      */
     @RequestMapping("index/upload/img")
     @ResponseBody
-    public Map<String, Object> indexUploadImg(MultipartFile img, HttpServletRequest request) throws IllegalStateException, IOException {
+    public Map<String, Object> indexUploadImg(MultipartFile img, @RequestParam(value = "id") String id, HttpServletRequest request)
+            throws IllegalStateException, IOException {
 
+        log.debug(id + "--------------" + img.getSize());
         // 上传图片
         Map<String, Object> uploadImg = viewShareService.uploadImg(img);
         return uploadImg;
@@ -115,10 +117,10 @@ public class Index {
      */
     @RequestMapping("index/upload/message")
     @ResponseBody
-    public String indexUploadMessage(@RequestParam(value = "titleInput") String titleInput,
+    public String indexUploadMessage(@RequestParam(value = "id") String id, @RequestParam(value = "titleInput") String titleInput,
             @RequestParam(value = "messageDetail") String messageDetail) {
 
-        log.debug(titleInput + "----" + messageDetail);
+        log.debug(id + "----------" + titleInput + "----" + messageDetail);
         return null;
     }
 

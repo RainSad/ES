@@ -92,20 +92,6 @@ function initSummernote() {
  */
 function initFileInput() {
 	$("#file-1").fileinput({
-
-		// 同步提交
-		// language: 'zh', //设置语言
-		// showUpload: false, //是否显示上传按钮
-		// showRemove:true,
-		// dropZoneEnabled: false,
-		// showCaption: true,//是否显示标题
-		// allowedPreviewTypes: ['image'],
-		// allowedFileTypes: ['image'],
-		// allowedFileExtensions: ['jpg', 'png','gif'],
-		// maxFileSize : 2000,
-		// maxFileCount: 8,
-		// uploadAsync: false, //同步上传
-
 		// 异步上传
 		language : 'zh', // 设置语言
 		uploadUrl : 'index/upload/img', // 上传地址
@@ -117,13 +103,13 @@ function initFileInput() {
 		allowedPreviewTypes : [ 'image' ],
 		allowedFileTypes : [ 'image' ],
 		allowedFileExtensions : [ 'jpg', 'png' ],
-		// minImageWidth: 50, //图片的最小宽度
-		// minImageHeight: 50,//图片的最小高度
-		// maxImageWidth: 1000,//图片的最大宽度
-		// maxImageHeight: 1000,//图片的最大高度
-		// maxFileSize: 0,//单位为kb，如果为0表示不限制文件大小
 		maxFileCount : 8,
-		maxImageWidth : "300px"
+		maxImageWidth : "300px",
+		uploadExtraData : function() {
+			return {
+				"id" : vm2.info.id
+			}
+		}
 	});
 	// 异步上传返回结果处理
 	$('#file-1').on('fileerror', function(event, data, msg) {
@@ -134,24 +120,6 @@ function initFileInput() {
 	$("#file-1").on("fileuploaded", function(event, data, previewId, index) {
 		console.log(data.response.url);
 
-	});
-
-	// //同步上传错误处理
-	// $('#file-1').on('filebatchuploaderror', function(event, data, msg) {
-	// console.log("filebatchuploaderror");
-	// console.log(data);
-	// });
-	//
-	// //同步上传返回结果处理
-	// $("#file-1").on("filebatchuploadsuccess",
-	// function(event, data, previewId, index) {
-	// console.log("filebatchuploadsuccess");
-	// console.log(data);
-	// });
-
-	// 上传前
-	$('.myfile').on('filepreupload', function(event, data, previewId, index) {
-		console.log("filepreupload");
 	});
 }
 
@@ -178,26 +146,38 @@ var vm2 = new Vue({
 	},
 	methods : {
 		viewShareSubmit : function() {
-			//从后台加载id
-			getIndexUploadId();
 			// 验证输入
-			var bootstrapValidator = $("#myModal").data("bootstrapValidator");
-			//校验
-			bootstrapValidator.validate();
-			//得到校验结果 true or false
+			var bootstrapValidator = $("#myModal").data("bootstrapValidator")
+					.validate();
+			// 得到校验结果 true or false
 			var result = bootstrapValidator.isValid();
 			// 得到输入值
+			var id = $("#id").val()
 			var titleInput = $("#title").val();
 			var messageDetail = $('#editor').summernote('code');
 			if (result) {
-				var dataTemp = {
-					'titleInput' : titleInput,
-					'messageDetail' : messageDetail
-				}
-				this.info = dataTemp;
+				// 拼接到传送json字符串中
+				this.info.titleInput = titleInput;
+				this.info.messageDetail = messageDetail;
+
 				$('#delcfmModel').modal();
 				$('#myModal').modal("hide");
 			}
+		},
+		resetData : function() {
+			// 从后台重新加载id
+			getIndexUploadId();
+			// 重置标题
+			$("#title").val("");
+			// 重置验证 先销毁
+			$("#myModal").data('bootstrapValidator').destroy();
+			// 加载表单校验
+			validataForm("myModal");
+			// 清除图片输入
+			$("#file-1").fileinput("clear");
+			// 重置富文本输入
+			$('#editor').summernote('reset')
+
 		}
 
 	},
@@ -208,29 +188,8 @@ var vm2 = new Vue({
 	},
 	mounted : function() {
 		this.$nextTick(function() {
-			$('#myModal').bootstrapValidator({
-				message : '这个还是需要填写的...',
-				feedbackIcons : {
-					valid : 'glyphicon glyphicon-ok',
-					invalid : 'glyphicon glyphicon-remove',
-					validating : 'glyphicon glyphicon-refresh'
-				},
-				fields : {
-					'title' : {
-						validators : {
-							notEmpty : {
-								message : '这个还是需要填写的...'
-							},
-							stringLength : {
-								min : 6,
-								max : 30,
-								message : '多几个字吧，不要大于30个就行'
-							}
-						}
-
-					}
-				}
-			});
+			// 加载表单校验
+			validataForm("myModal");
 		})
 	}
 });
@@ -254,6 +213,21 @@ var vm3 = new Vue({
 			"cancel" : "再写点",
 			"confirm" : "确定"
 		}
+	}
+});
+
+var vm4 = new Vue({
+	el : "#addRes",
+	methods : {
+		// 上传模态框弹出控制
+		modelViewShare : function() {
+			// 从后台加载id
+			getIndexUploadId();
+			$('#myModal').modal("show");
+		}
+	},
+	data : {
+
 	}
 });
 
@@ -295,6 +269,13 @@ function getCookie(yourView_userInfo) {
 	}
 }
 
+/**
+ * 上传分享信息
+ * 
+ * @param url
+ * @param info
+ * @returns
+ */
 function AjaxSubmit(url, info) {
 	$.ajax({
 		url : url,
@@ -303,20 +284,23 @@ function AjaxSubmit(url, info) {
 		type : "post",
 		success : function(data) {
 			if (data.Result == "success") {
-				vm.user = true;
-				vm.seen = false
+
 			}
 		}
 	})
 }
-function getIndexUploadId(){
+
+/**
+ * 从后台加载id 赋值给vm2的info.id
+ * 
+ * @returns
+ */
+function getIndexUploadId() {
 	$.getJSON("index/upload/getId", function(data) {
-		debugger;
-		alert(data);
-		if(data.status == 1){
-			vm2.info.id =data.data.id
+		if (data.status == 1) {
+			vm2.info.id = data.data.id
 		}
-		
+
 	});
 }
 /**
@@ -337,4 +321,35 @@ function saveLoginInfo(info) {
 			}
 		}
 	})
+}
+
+/**
+ * 表单校验
+ * 
+ * @returns
+ */
+function validataForm(formId) {
+	$('#' + formId).bootstrapValidator({
+		message : '这个还是需要填写的...',
+		feedbackIcons : {
+			valid : 'glyphicon glyphicon-ok',
+			invalid : 'glyphicon glyphicon-remove',
+			validating : 'glyphicon glyphicon-refresh'
+		},
+		fields : {
+			'title' : {
+				validators : {
+					notEmpty : {
+						message : '这个还是需要填写的...'
+					},
+					stringLength : {
+						min : 6,
+						max : 30,
+						message : '多几个字吧，不要大于30个就行'
+					}
+				}
+
+			}
+		}
+	});
 }
