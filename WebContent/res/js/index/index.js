@@ -119,7 +119,6 @@ function initFileInput() {
 	// 异步上传返回结果处理
 	$("#file-1").on("fileuploaded", function(event, data, previewId, index) {
 		console.log(data.response.url);
-
 	});
 }
 
@@ -196,6 +195,9 @@ var vm2 = new Vue({
 
 var vm3 = new Vue({
 	el : "#delcfmModel",
+	components : {
+
+	},
 	methods : {
 		submit : function() {
 			AjaxSubmit("index/upload/message", vm2.info);

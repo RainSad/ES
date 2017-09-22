@@ -17,40 +17,40 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WEB-INF/view/index/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1722">
-              <caret line="49" column="72" lean-forward="true" selection-start-line="49" selection-start-column="72" selection-end-line="49" selection-end-column="72" />
+            <state relative-caret-position="5040">
+              <caret line="280" column="21" lean-forward="false" selection-start-line="280" selection-start-column="21" selection-end-line="280" selection-end-column="21" />
               <folding>
-                <element signature="e#5264#5271#0" expanded="true" />
-                <element signature="e#5941#5948#0" expanded="true" />
-                <element signature="e#6618#6625#0" expanded="true" />
-                <element signature="e#9897#9903#0" expanded="true" />
-                <element signature="e#9923#9931#0" expanded="true" />
-                <element signature="e#9972#9980#0" expanded="true" />
+                <element signature="e#5439#5446#0" expanded="true" />
+                <element signature="e#6099#6106#0" expanded="true" />
+                <element signature="e#6759#6766#0" expanded="true" />
+                <element signature="e#9902#9908#0" expanded="true" />
+                <element signature="e#9928#9936#0" expanded="true" />
+                <element signature="e#9977#9985#0" expanded="true" />
                 <element signature="n#style#0;n#i#0;n#a#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#10610#10617#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/res/js/index/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="156" column="38" lean-forward="false" selection-start-line="156" selection-start-column="38" selection-end-line="156" selection-end-column="38" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <marker date="1505655465820" expanded="true" signature="4860:4867" ph="×" />
-              </folding>
+            <state relative-caret-position="3186">
+              <caret line="217" column="5" lean-forward="false" selection-start-line="200" selection-start-column="4" selection-end-line="217" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="1.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WEB-INF/view/index/1.txt">
+      <file leaf-file-name="confirm.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/res/commom/vue/components/confirm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="94" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="94" />
-              <folding />
+            <state relative-caret-position="180">
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -60,6 +60,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -71,15 +72,15 @@
       <find>addImagePopoverButtons</find>
       <find>toolbar</find>
       <find>view</find>
-      <find>res/</find>
       <find>img</find>
       <find>preview.css</find>
       <find>previewId</find>
       <find>res</find>
+      <find>res/</find>
     </findStrings>
     <replaceStrings>
-      <replace>../../../res/</replace>
       <replace>../../../res</replace>
+      <replace>../../../res/</replace>
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -91,8 +92,11 @@
         <option value="$PROJECT_DIR$/res/css/index/index.css" />
         <option value="$PROJECT_DIR$/res/commom/easyui/plugins/fileinput_locale_zh.js" />
         <option value="$PROJECT_DIR$/WEB-INF/view/index/login.html" />
-        <option value="$PROJECT_DIR$/WEB-INF/view/index/index.html" />
+        <option value="$PROJECT_DIR$/WEB-INF/view/index/vuetest.js" />
+        <option value="$PROJECT_DIR$/WEB-INF/view/index/vuetest.html" />
         <option value="$PROJECT_DIR$/res/js/index/index.js" />
+        <option value="$PROJECT_DIR$/WEB-INF/view/index/index.html" />
+        <option value="$PROJECT_DIR$/res/commom/vue/components/confirm.js" />
       </list>
     </option>
   </component>
@@ -109,7 +113,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="260" />
     <option name="y" value="20" />
     <option name="width" value="1400" />
@@ -130,6 +134,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -153,26 +159,15 @@
               <item name="WebContent" type="462c0819:PsiDirectoryNode" />
               <item name="res" type="462c0819:PsiDirectoryNode" />
               <item name="commom" type="462c0819:PsiDirectoryNode" />
-              <item name="easyui" type="462c0819:PsiDirectoryNode" />
+              <item name="vue" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WebContent" type="b2602c69:ProjectViewProjectNode" />
               <item name="WebContent" type="462c0819:PsiDirectoryNode" />
               <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WebContent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebContent" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="WebContent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="WebContent" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-              <item name="index" type="462c0819:PsiDirectoryNode" />
+              <item name="commom" type="462c0819:PsiDirectoryNode" />
+              <item name="vue" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="WebContent" type="b2602c69:ProjectViewProjectNode" />
@@ -196,8 +191,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -205,19 +198,21 @@
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\development\workplace-oxygen\ES\WebContent\res\commom\easyui\plugins\summernote" />
-      <recent name="D:\development\workplace-oxygen\ES\WebContent\res\commom\easyui\plugins" />
-      <recent name="D:\development\workplace-oxygen\ES\WebContent\res\commom\easyui\themes" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\development\workplace-oxygen\ES\WebContent\res\commom\easyui\plugins\summernote\lang" />
       <recent name="D:\development\workplace-oxygen\ES\WebContent\res\commom\easyui\plugins\summernote" />
       <recent name="D:\development\workplace-oxygen\ES\WebContent\res\commom\easyui\font" />
       <recent name="D:\development\workplace-oxygen\ES\WebContent\res\commom\easyui\themes" />
       <recent name="D:\development\workplace-oxygen\ES\WebContent\res\commom\easyui\plugins" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\development\workplace-oxygen\ES\WebContent\res\commom\vue" />
+      <recent name="D:\development\workplace-oxygen\ES\WebContent\res\commom\easyui\plugins\summernote" />
+      <recent name="D:\development\workplace-oxygen\ES\WebContent\res\commom\easyui\plugins" />
+      <recent name="D:\development\workplace-oxygen\ES\WebContent\res\commom\easyui\themes" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -248,17 +243,21 @@
       <workItem from="1505442433119" duration="20270000" />
       <workItem from="1505532478426" duration="14169000" />
       <workItem from="1505612709104" duration="7980000" />
+      <workItem from="1505898943494" duration="4849000" />
+      <workItem from="1506042030174" duration="1195000" />
+      <workItem from="1506047297074" duration="11000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49091000" />
+    <option name="totallyTimeSpent" value="55146000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -294,36 +293,115 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/WEB-INF/view/index/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="50" column="37" lean-forward="true" selection-start-line="50" selection-start-column="37" selection-end-line="50" selection-end-column="37" />
+        <state relative-caret-position="5040">
+          <caret line="280" column="21" lean-forward="false" selection-start-line="280" selection-start-column="21" selection-end-line="280" selection-end-column="21" />
           <folding>
-            <element signature="e#5264#5271#0" expanded="true" />
-            <element signature="e#5941#5948#0" expanded="true" />
-            <element signature="e#6618#6625#0" expanded="true" />
-            <element signature="e#9897#9903#0" expanded="true" />
-            <element signature="e#9923#9931#0" expanded="true" />
-            <element signature="e#9972#9980#0" expanded="true" />
+            <element signature="e#5439#5446#0" expanded="true" />
+            <element signature="e#6099#6106#0" expanded="true" />
+            <element signature="e#6759#6766#0" expanded="true" />
+            <element signature="e#9902#9908#0" expanded="true" />
+            <element signature="e#9928#9936#0" expanded="true" />
+            <element signature="e#9977#9985#0" expanded="true" />
             <element signature="n#style#0;n#i#0;n#a#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#10610#10617#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WEB-INF/view/index/1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="94" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="94" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/js/index/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3434">
-          <caret line="202" column="17" lean-forward="true" selection-start-line="202" selection-start-column="17" selection-end-line="202" selection-end-column="17" />
+        <state relative-caret-position="3906">
+          <caret line="217" column="5" lean-forward="true" selection-start-line="200" selection-start-column="4" selection-end-line="217" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/commom/vue/components/confirm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <marker date="1505655465820" expanded="true" signature="4860:4867" ph="×" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEB-INF/view/index/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5454">
+          <caret line="303" column="16" lean-forward="false" selection-start-line="279" selection-start-column="0" selection-end-line="303" selection-end-column="16" />
+          <folding>
+            <element signature="e#5439#5446#0" expanded="true" />
+            <element signature="e#6099#6106#0" expanded="true" />
+            <element signature="e#6759#6766#0" expanded="true" />
+            <element signature="e#9902#9908#0" expanded="true" />
+            <element signature="e#9928#9936#0" expanded="true" />
+            <element signature="e#9977#9985#0" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#10610#10617#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/js/index/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2952">
+          <caret line="164" column="13" lean-forward="true" selection-start-line="164" selection-start-column="13" selection-end-line="164" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEB-INF/view/index/vuetest.js" />
+    <entry file="file://$PROJECT_DIR$/WEB-INF/view/index/vuetest.html" />
+    <entry file="file://$PROJECT_DIR$/WEB-INF/view/index/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="882">
+          <caret line="49" column="72" lean-forward="true" selection-start-line="49" selection-start-column="72" selection-end-line="49" selection-end-column="72" />
+          <folding>
+            <element signature="e#5439#5446#0" expanded="true" />
+            <element signature="e#6099#6106#0" expanded="true" />
+            <element signature="e#6759#6766#0" expanded="true" />
+            <element signature="e#9902#9908#0" expanded="true" />
+            <element signature="e#9928#9936#0" expanded="true" />
+            <element signature="e#9977#9985#0" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#10610#10617#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEB-INF/view/index/1.txt" />
+    <entry file="file://$PROJECT_DIR$/res/js/index/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2376">
+          <caret line="132" column="3" lean-forward="true" selection-start-line="132" selection-start-column="3" selection-end-line="132" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEB-INF/view/index/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="50" column="37" lean-forward="true" selection-start-line="50" selection-start-column="37" selection-end-line="50" selection-end-column="37" />
+          <folding>
+            <element signature="e#5439#5446#0" expanded="true" />
+            <element signature="e#6099#6106#0" expanded="true" />
+            <element signature="e#6759#6766#0" expanded="true" />
+            <element signature="e#9902#9908#0" expanded="true" />
+            <element signature="e#9928#9936#0" expanded="true" />
+            <element signature="e#9977#9985#0" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#10610#10617#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEB-INF/view/index/1.txt" />
+    <entry file="file://$PROJECT_DIR$/res/js/index/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3434">
+          <caret line="202" column="17" lean-forward="true" selection-start-line="202" selection-start-column="17" selection-end-line="202" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -332,13 +410,14 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#5264#5271#0" expanded="true" />
-            <element signature="e#5941#5948#0" expanded="true" />
-            <element signature="e#6618#6625#0" expanded="true" />
-            <element signature="e#9897#9903#0" expanded="true" />
-            <element signature="e#9923#9931#0" expanded="true" />
-            <element signature="e#9972#9980#0" expanded="true" />
+            <element signature="e#5439#5446#0" expanded="true" />
+            <element signature="e#6099#6106#0" expanded="true" />
+            <element signature="e#6759#6766#0" expanded="true" />
+            <element signature="e#9902#9908#0" expanded="true" />
+            <element signature="e#9928#9936#0" expanded="true" />
+            <element signature="e#9977#9985#0" expanded="true" />
             <element signature="n#style#0;n#i#0;n#a#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#10610#10617#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -355,13 +434,14 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#5264#5271#0" expanded="true" />
-            <element signature="e#5941#5948#0" expanded="true" />
-            <element signature="e#6618#6625#0" expanded="true" />
-            <element signature="e#9897#9903#0" expanded="true" />
-            <element signature="e#9923#9931#0" expanded="true" />
-            <element signature="e#9972#9980#0" expanded="true" />
+            <element signature="e#5439#5446#0" expanded="true" />
+            <element signature="e#6099#6106#0" expanded="true" />
+            <element signature="e#6759#6766#0" expanded="true" />
+            <element signature="e#9902#9908#0" expanded="true" />
+            <element signature="e#9928#9936#0" expanded="true" />
+            <element signature="e#9977#9985#0" expanded="true" />
             <element signature="n#style#0;n#i#0;n#a#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#10610#10617#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -373,62 +453,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WEB-INF/view/index/1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/WEB-INF/view/index/1.txt" />
     <entry file="file://$PROJECT_DIR$/WEB-INF/view/index/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4248">
           <caret line="236" column="40" lean-forward="false" selection-start-line="236" selection-start-column="40" selection-end-line="236" selection-end-column="40" />
           <folding>
-            <element signature="e#5264#5271#0" expanded="true" />
-            <element signature="e#5941#5948#0" expanded="true" />
-            <element signature="e#6618#6625#0" expanded="true" />
-            <element signature="e#9897#9903#0" expanded="true" />
-            <element signature="e#9923#9931#0" expanded="true" />
-            <element signature="e#9972#9980#0" expanded="true" />
+            <element signature="e#5439#5446#0" expanded="true" />
+            <element signature="e#6099#6106#0" expanded="true" />
+            <element signature="e#6759#6766#0" expanded="true" />
+            <element signature="e#9902#9908#0" expanded="true" />
+            <element signature="e#9928#9936#0" expanded="true" />
+            <element signature="e#9977#9985#0" expanded="true" />
             <element signature="n#style#0;n#i#0;n#a#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#10610#10617#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WEB-INF/view/index/1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/WEB-INF/view/index/1.txt" />
     <entry file="file://$PROJECT_DIR$/WEB-INF/view/index/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#5264#5271#0" expanded="true" />
-            <element signature="e#5941#5948#0" expanded="true" />
-            <element signature="e#6618#6625#0" expanded="true" />
-            <element signature="e#9897#9903#0" expanded="true" />
-            <element signature="e#9923#9931#0" expanded="true" />
-            <element signature="e#9972#9980#0" expanded="true" />
+            <element signature="e#5439#5446#0" expanded="true" />
+            <element signature="e#6099#6106#0" expanded="true" />
+            <element signature="e#6759#6766#0" expanded="true" />
+            <element signature="e#9902#9908#0" expanded="true" />
+            <element signature="e#9928#9936#0" expanded="true" />
+            <element signature="e#9977#9985#0" expanded="true" />
             <element signature="n#style#0;n#i#0;n#a#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#10610#10617#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WEB-INF/view/index/1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="21" lean-forward="false" selection-start-line="0" selection-start-column="21" selection-end-line="0" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/WEB-INF/view/index/1.txt" />
     <entry file="file://$PROJECT_DIR$/res/commom/easyui/plugins/jquery-scrolltofixed.js" />
     <entry file="file://$PROJECT_DIR$/res/commom/font-awesome/css/font-awesome-ie7.css" />
     <entry file="file://$PROJECT_DIR$/res/commom/font-awesome/scss/_core.scss" />
@@ -485,7 +546,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="809">
           <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -500,7 +560,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -525,37 +584,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WEB-INF/view/index/1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="94" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/WEB-INF/view/index/1.txt" />
+    <entry file="file://$PROJECT_DIR$/res/commom/vue/components/confirm.vue" />
+    <entry file="file://$PROJECT_DIR$/WEB-INF/view/index/vuetest.js" />
+    <entry file="file://$PROJECT_DIR$/WEB-INF/view/index/vuetest.html" />
     <entry file="file://$PROJECT_DIR$/WEB-INF/view/index/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1722">
-          <caret line="49" column="72" lean-forward="true" selection-start-line="49" selection-start-column="72" selection-end-line="49" selection-end-column="72" />
+        <state relative-caret-position="5040">
+          <caret line="280" column="21" lean-forward="false" selection-start-line="280" selection-start-column="21" selection-end-line="280" selection-end-column="21" />
           <folding>
-            <element signature="e#5264#5271#0" expanded="true" />
-            <element signature="e#5941#5948#0" expanded="true" />
-            <element signature="e#6618#6625#0" expanded="true" />
-            <element signature="e#9897#9903#0" expanded="true" />
-            <element signature="e#9923#9931#0" expanded="true" />
-            <element signature="e#9972#9980#0" expanded="true" />
+            <element signature="e#5439#5446#0" expanded="true" />
+            <element signature="e#6099#6106#0" expanded="true" />
+            <element signature="e#6759#6766#0" expanded="true" />
+            <element signature="e#9902#9908#0" expanded="true" />
+            <element signature="e#9928#9936#0" expanded="true" />
+            <element signature="e#9977#9985#0" expanded="true" />
             <element signature="n#style#0;n#i#0;n#a#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#10610#10617#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/js/index/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="156" column="38" lean-forward="false" selection-start-line="156" selection-start-column="38" selection-end-line="156" selection-end-column="38" />
+        <state relative-caret-position="3186">
+          <caret line="217" column="5" lean-forward="false" selection-start-line="200" selection-start-column="4" selection-end-line="217" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/commom/vue/components/confirm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <marker date="1505655465820" expanded="true" signature="4860:4867" ph="×" />
           </folding>
         </state>
       </provider>
