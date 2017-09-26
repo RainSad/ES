@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 
 import com.alibaba.fastjson.JSON;
 import com.core.common.sqltool.CamelCharOrUnderLine;
-import com.core.common.sqltool.QueryResult;
+import com.sys.entity.resdata.QueryResultPage;
 
 /**
  * 
@@ -148,10 +148,10 @@ public class MysqlBaseDaoImp<T> implements BaseDao<T> {
 	 * 根据传入的pageno和pagesize实现制定条数查找
 	 */
 	@Override
-	public QueryResult<T> findByPage(Integer pageNo, Integer pageSize) {
+	public QueryResultPage<T> findByPage(Integer pageNo, Integer pageSize) {
 		List<T> list = this.find(pageNo, pageSize, null, null);
 		Integer totalRow = this.count(null);
-		return new QueryResult<T>(list, totalRow,pageNo,pageSize);
+		return new QueryResultPage<T>(list, totalRow,pageNo,pageSize);
 
 	}
 
@@ -159,10 +159,10 @@ public class MysqlBaseDaoImp<T> implements BaseDao<T> {
 	 * 根据传入的pageno和pagesize和where子句实现指定查找
 	 */
 	@Override
-	public QueryResult<T> findByPage(Integer pageNo, Integer pageSize, T entity) {
+	public QueryResultPage<T> findByPage(Integer pageNo, Integer pageSize, T entity) {
 		List<T> list = this.find(pageNo, pageSize, entity, null);
 		Integer totalRow = this.count(entity);
-		return new QueryResult<T>(list, totalRow,pageNo,pageSize);
+		return new QueryResultPage<T>(list, totalRow,pageNo,pageSize);
 
 	}
 
@@ -170,10 +170,10 @@ public class MysqlBaseDaoImp<T> implements BaseDao<T> {
 	 * 根据传入的pageno和pagesize和orderby子句实现指定查找
 	 */
 	@Override
-	public QueryResult<T> findByPage(Integer pageNo, Integer pageSize,Map<String, String> orderby) {
+	public QueryResultPage<T> findByPage(Integer pageNo, Integer pageSize,Map<String, String> orderby) {
 		List<T> list = this.find(pageNo, pageSize, null, orderby);
 		Integer totalRow = this.count(null);
-		return new QueryResult<T>(list, totalRow,pageNo,pageSize);
+		return new QueryResultPage<T>(list, totalRow,pageNo,pageSize);
 
 	}
 
@@ -181,11 +181,11 @@ public class MysqlBaseDaoImp<T> implements BaseDao<T> {
 	 * 根据传入的pageno和pagesize和where和orderby子句实现指定查找
 	 */
 	@Override
-	public QueryResult<T> findByPage(Integer pageNo, Integer pageSize, T entity,
+	public QueryResultPage<T> findByPage(Integer pageNo, Integer pageSize, T entity,
 			Map<String, String> orderby) {
 		List<T> list = this.find(pageNo, pageSize, entity, orderby);
 		Integer totalRow = this.count(entity);
-		return new QueryResult<T>(list, totalRow,pageNo,pageSize);
+		return new QueryResultPage<T>(list, totalRow,pageNo,pageSize);
 
 	}
 

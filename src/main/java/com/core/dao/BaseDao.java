@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-import com.core.common.sqltool.QueryResult;
+import com.sys.entity.resdata.QueryResultPage;
 
 public interface BaseDao<T> {
 
@@ -28,13 +28,13 @@ public interface BaseDao<T> {
 
 	public List<T> findAll();
 
-	public QueryResult<T> findByPage(Integer pageNo, Integer pageSize);
+	public QueryResultPage<T> findByPage(Integer pageNo, Integer pageSize);
 
-	public QueryResult<T> findByPage(Integer pageNo, Integer pageSize, T entity);
+	public QueryResultPage<T> findByPage(Integer pageNo, Integer pageSize, T entity);
 
-	public QueryResult<T> findByPage(Integer pageNo, Integer pageSize, Map<String, String> orderby);
+	public QueryResultPage<T> findByPage(Integer pageNo, Integer pageSize, Map<String, String> orderby);
 
-	public QueryResult<T> findByPage(Integer pageNo, Integer pageSize, T where,
+	public QueryResultPage<T> findByPage(Integer pageNo, Integer pageSize, T where,
 			Map<String, String> orderby);
 	
 

@@ -1,4 +1,4 @@
-package com.core.common.sqltool;
+package com.sys.entity.resdata;
 
 import java.util.List;
 
@@ -14,24 +14,24 @@ import org.springframework.stereotype.Component;
  * @param <T>
  */
 @Component
-public class QueryResult<T> {
+public class QueryResultPage<T> {
 
 	private List<T> data; // 结果集
 	private int totalRow; // 总记录数
 	private int CurrentPageNo;
 	private int CurrentPageSize;
 
-	public QueryResult() {
+	public QueryResultPage() {
 	}
 
-	public QueryResult(List<T> data, int totalRow, int currentPageNo, int currentPageSize) {
+	public QueryResultPage(List<T> data, int totalRow, int currentPageNo, int currentPageSize) {
 		this.data = data;
 		this.totalRow = totalRow;
 		this.CurrentPageNo = currentPageNo;
 		this.CurrentPageSize = currentPageSize;
 	}
 
-	public QueryResult(List<T> data) {
+	public QueryResultPage(List<T> data) {
 		this.data = data;
 	}
 
