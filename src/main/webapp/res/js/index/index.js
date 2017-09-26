@@ -138,6 +138,9 @@ var vm = new Vue({
 	}
 });
 
+/**
+ * 弹出式分享内容框即页面加号按钮
+ */
 var vm2 = new Vue({
 	el : '#myModal',
 	components : {
@@ -193,17 +196,22 @@ var vm2 = new Vue({
 	}
 });
 
+/**
+ * 弹出式确认框
+ */
 var vm3 = new Vue({
-	el : "#delcfmModel",
+	el : "#confirmModel",
 	components : {
-
+		'confirm':confirmModel,
 	},
 	methods : {
 		submit : function() {
+			alert(2);
 			AjaxSubmit("index/upload/message", vm2.info);
 			$('#delcfmModel').modal('hide')
 		},
 		cancel : function() {
+			alert(1);
 			$('#delcfmModel').modal('hide');
 			$('#myModal').modal("show");
 		}
@@ -218,6 +226,9 @@ var vm3 = new Vue({
 	}
 });
 
+/**
+ * 分享模态框弹出控制
+ */
 var vm4 = new Vue({
 	el : "#addRes",
 	methods : {

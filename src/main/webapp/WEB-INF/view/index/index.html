@@ -8,15 +8,15 @@
     <meta name="author" content="sunwx">
     <title>首页</title>
     <link rel="stylesheet"
-          href="../../../res/commom/font-awesome/css/font-awesome.min.css">
+          href="res/commom/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet"
-          href="../../../res/commom/bootstrap3.3.7/css/bootstrap.min.css">
+          href="res/commom/bootstrap3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet"
-          href="../../../res/commom/bootstrap3.3.7/css/bootstrapValidator.min.css">
-    <link rel="stylesheet" href="../../../res/commom/easyui/themes/fileinput.css">
+          href="res/commom/bootstrap3.3.7/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="res/commom/easyui/themes/fileinput.css">
     <link rel="stylesheet"
-          href="../../../res/commom/easyui/plugins/summernote/summernote.css">
-    <link rel="stylesheet" href="../../../res/css/index/index.css">
+          href="res/commom/easyui/plugins/summernote/summernote.css">
+    <link rel="stylesheet" href="res/css/index/index.css">
 </head>
 <body>
 <div class="navbar-wrapper">
@@ -71,19 +71,19 @@
     </ol>
     <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <img src="../../../res/image/index/lunbo2.jpg" alt="First slide"/>
+            <img src="res/image/index/lunbo2.jpg" alt="First slide"/>
             <div class="container">
                 <div class="carousel-caption">介绍》》》》》》》》》》》》》》》》》》》》》》》》》</div>
             </div>
         </div>
         <div class="item">
-            <img src="../../../res/image/index/lunbo1.jpg" alt="Second slide"/>
+            <img src="res/image/index/lunbo1.jpg" alt="Second slide"/>
             <div class="container">
                 <div class="carousel-caption">介绍》》》》》》》》》》》》》》》》》》》》》》》》》</div>
             </div>
         </div>
         <div class="item">
-            <img src="../../../res/image/index/lunbo0.jpg" alt="Third slide"/>
+            <img src="res/image/index/lunbo0.jpg" alt="Third slide"/>
             <div class="container">
                 <div class="carousel-caption">介绍》》》》》》》》》》》》》》》》》》》》》》》》》</div>
             </div>
@@ -104,7 +104,7 @@
 <div class="container marketing">
     <div class="row">
         <div class="col-lg-4">
-            <img src="../../../res/image/index/icon1.jpg" class="img-circle"
+            <img src="res/image/index/icon1.jpg" class="img-circle"
                  alt="Generic placeholder image" width="140px" height="140px"/>
             <h2>Heading</h2>
             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis
@@ -118,7 +118,7 @@
         </div>
 
         <div class="col-lg-4">
-            <img src="../../../res/image/index/icon2.jpg" class="img-circle"
+            <img src="res/image/index/icon2.jpg" class="img-circle"
                  alt="Generic placeholder image" width="140px" height="140px"/>
             <h2>Heading</h2>
             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis
@@ -132,7 +132,7 @@
         </div>
 
         <div class="col-lg-4">
-            <img src="../../../res/image/index/icon3.jpg" class="img-circle"
+            <img src="res/image/index/icon3.jpg" class="img-circle"
                  alt="Generic placeholder image" width="140px" height="140px"/>
             <h2>Heading</h2>
             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis
@@ -161,7 +161,7 @@
                 Fusce dapibus, tellus ac cursus commodo.</p>
         </div>
         <div class="col-md-5">
-            <img src="../../../res/image/index/dex1.jpg" class="img-responsive"/>
+            <img src="res/image/index/dex1.jpg" class="img-responsive"/>
         </div>
     </div>
 
@@ -169,7 +169,7 @@
 
     <div class="row">
         <div class="col-md-5">
-            <img class="img-responsive" src="../../../res/image/index/dex2.jpg">
+            <img class="img-responsive" src="res/image/index/dex2.jpg">
         </div>
         <div class="col-md-7">
             <h2 class="featurette-heading">
@@ -197,7 +197,7 @@
                 Fusce dapibus, tellus ac cursus commodo.</p>
         </div>
         <div class="col-md-5">
-            <img src="../../../res/image/index/dex1.jpg" class="img-responsive"/>
+            <img src="res/image/index/dex1.jpg" class="img-responsive"/>
         </div>
     </div>
 
@@ -205,7 +205,7 @@
 
     <div class="row">
         <div class="col-md-5">
-            <img class="img-responsive" src="../../../res/image/index/dex3.jpeg">
+            <img class="img-responsive" src="res/image/index/dex3.jpeg">
         </div>
         <div class="col-md-7">
             <h2 class="featurette-heading">
@@ -277,41 +277,22 @@
         </div>
     </div>
 </div>
-<!-- 弹出提示对话框 -->
-<div class="modal fade" id="delcfmModel">
-    <div class="modal-dialog">
-        <div class="modal-content message_align">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"
-                        aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-                <h4 class="modal-title">{{info.header}}</h4>
-            </div>
-            <div class="modal-body">
-                <p>{{info.message}}</p>
-            </div>
-            <div class="modal-footer">
-                <button v-on:click="cancel" type="button" class="btn btn-default" data-dismiss="modal">{{info.cancel}}
-                </button>
-                <button v-on:click="submit" type="button" class="btn btn-primary">{{info.confirm}}</button>
-            </div>
-        </div>
-    </div>
+<!-- 弹出提示框 info，为传入的数据  cancel和submit采用回调对应父组件的方法 -->
+<div id="confirmModel">
+	<confirm :info="info" @cancel="cancel" @submit="submit"></confirm>
 </div>
 
-
-<script src="../../../res/commom/easyui/plugins/jquery-3.2.1.min.js"></script>
-<script src="../../../res/commom/vue/vue.min.js"></script>
-<script src="../../../res/commom/easyui/plugins/fileinput.js"></script>
-<script src="../../../res/commom/easyui/plugins/fileinput_locale_zh.js"></script>
-<script src="../../../res/commom/easyui/plugins/summernote/summernote.js"></script>
-<script
-        src="../../../res/commom/easyui/plugins/summernote/lang/summernote-zh-CN.min.js"></script>
-<script src="../../../res/commom/easyui/plugins/jquery.cookie.js"></script>
-<script src="../../../res/commom/bootstrap3.3.7/js/bootstrapValidator.min.js"></script>
-<script src="../../../res/js/index/index.js"></script>
-<script src="../../../res/commom/bootstrap3.3.7/js/bootstrap.min.js"></script>
+<script src="res/commom/easyui/plugins/jquery-3.2.1.min.js"></script>
+<script src="res/commom/vue/vue.min.js"></script>
+<script src="res/commom/easyui/plugins/fileinput.js"></script>
+<script src="res/commom/easyui/plugins/fileinput_locale_zh.js"></script>
+<script src="res/commom/easyui/plugins/summernote/summernote.js"></script>
+<script src="res/commom/easyui/plugins/summernote/lang/summernote-zh-CN.min.js"></script>
+<script src="res/commom/easyui/plugins/jquery.cookie.js"></script>
+<script src="res/commom/bootstrap3.3.7/js/bootstrapValidator.min.js"></script>
+<script src="res/commom/vue/components/confirm.js"></script>
+<script src="res/js/index/index.js"></script>
+<script src="res/commom/bootstrap3.3.7/js/bootstrap.min.js"></script>
 
 
 <script>
