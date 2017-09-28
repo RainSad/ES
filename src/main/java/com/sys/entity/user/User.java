@@ -28,6 +28,16 @@ public class User {
 	public User() {
 		super();
 	}
+	
+
+	public User(String id, String userName, String passWord, String nickName) {
+		super();
+		this.id = id;
+		this.userName = userName;
+		this.passWord = passWord;
+		this.nickName = nickName;
+	}
+
 
 	public String getId() {
 		return id;
