@@ -14,7 +14,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.alibaba.fastjson.JSON;
-import com.core.common.sqltool.CamelCharOrUnderLine;
+import com.core.common.utill.CamelCharOrUnderLine;
 import com.sys.entity.resdata.QueryResultPage;
 
 /**

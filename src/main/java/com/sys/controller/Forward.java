@@ -1,8 +1,11 @@
 package com.sys.controller;
 
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.sys.controller.index.Index;
 
 /**
  * 
@@ -14,9 +17,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class Forward {
+	
+	 Logger log = Logger.getLogger(Forward.class);
 
 	@RequestMapping("/")
 	public String toIndex() {
+		 log.debug("请求路径： " + "/");
+		 log.debug("返回页面： " + "/WEB-INF/view/index/index.html");
 		return "index/index";
 	}
 

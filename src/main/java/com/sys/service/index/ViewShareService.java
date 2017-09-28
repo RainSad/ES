@@ -12,7 +12,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.core.common.sqltool.IdToolUtil;
+import com.core.common.utill.IdToolUtil;
 import com.core.dao.MysqlBaseDaoImp;
 import com.sys.controller.index.Index;
 import com.sys.entity.index.ViewShare;

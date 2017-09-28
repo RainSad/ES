@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.core.common.canstant.Canstant;
-import com.core.common.sqltool.IdToolUtil;
+import com.core.common.utill.IdToolUtil;
 import com.sys.entity.user.UserInfo;
 import com.sys.entity.user.UserLog;
 import com.sys.service.user.UserLogService;

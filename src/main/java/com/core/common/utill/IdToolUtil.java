@@ -1,4 +1,4 @@
-package com.core.common.sqltool;
+package com.core.common.utill;
 
 import java.util.UUID;
 /**

@@ -120,6 +120,7 @@ public class Index {
     public String indexUploadMessage(@RequestParam(value = "id") String id, @RequestParam(value = "titleInput") String titleInput,
             @RequestParam(value = "messageDetail") String messageDetail) {
 
+    	log.debug("请求路径： " + "index/upload/getId");
         log.debug(id + "----------" + titleInput + "----" + messageDetail);
         return null;
     }
@@ -137,6 +138,7 @@ public class Index {
     public JSONResponse getIndexUploadGetId() {
         Map<String, String> map = new HashMap<String, String>();
         map.put("id", viewShareService.getID());
+        log.debug("请求路径： " + "index/upload/getId");
         return new JSONResponse(map.size() > 0 ? 1 : 0, map, map.size());
     }
 

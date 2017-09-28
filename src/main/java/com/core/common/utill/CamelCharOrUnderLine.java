@@ -1,14 +1,15 @@
-package com.core.common.sqltool;
+package com.core.common.utill;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 /**
  * 
-* @ClassName: CamelCharOrUnderLine 
-* @Description: TODO(数据库下划线和驼峰标识的互换) 
-* @author 孙文祥 
-* @date 2017年8月11日 下午4:50:49 
-*
+ * @ClassName: CamelCharOrUnderLine
+ * @Description: TODO(数据库下划线和驼峰标识的互换)
+ * @author 孙文祥
+ * @date 2017年8月11日 下午4:50:49
+ *
  */
 public class CamelCharOrUnderLine {
 

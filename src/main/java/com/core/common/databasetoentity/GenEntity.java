@@ -8,7 +8,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Date;
 
-import com.core.common.sqltool.CamelCharOrUnderLine;
+import com.core.common.utill.CamelCharOrUnderLine;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.ResultSetMetaData;
