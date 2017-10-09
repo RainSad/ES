@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.core.common.utill.IdToolUtil;
 import com.sys.entity.resdata.JSONResponse;
 import com.sys.entity.user.User;
 import com.sys.entity.user.UserInfo;
@@ -137,7 +138,7 @@ public class Index {
     @ResponseBody
     public JSONResponse getIndexUploadGetId() {
         Map<String, String> map = new HashMap<String, String>();
-        map.put("id", viewShareService.getID());
+        map.put("id", IdToolUtil.getUUID());
         log.debug("请求路径： " + "index/upload/getId");
         return new JSONResponse(map.size() > 0 ? 1 : 0, map, map.size());
     }

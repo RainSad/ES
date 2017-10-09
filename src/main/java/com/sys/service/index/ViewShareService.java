@@ -77,15 +77,4 @@ public class ViewShareService extends MysqlBaseDaoImp<ViewShare> {
 		}
 	}
 	
-	/**
-	 * 得到唯一id
-	* @Description: 
-	* @Title: getUUID 
-	* @param @return    设定文件 
-	* @return String    返回类型 
-	* @throws
-	 */
-	public String getID() {
-		return IdToolUtil.getUUID();
-	}
 }
