@@ -2,10 +2,15 @@ package com.sys.controller;
 
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.core.common.utill.IdToolUtil;
 import com.sys.controller.index.Index;
+import com.sys.entity.user.User;
+import com.sys.repository.user.UserRepositoryImp;
 
 /**
  * 
@@ -19,11 +24,13 @@ import com.sys.controller.index.Index;
 public class Forward {
 	
 	 Logger log = Logger.getLogger(Forward.class);
+	 
+	 @Autowired
+	 UserRepositoryImp userRepositoryImp;
 
 	@RequestMapping("/")
 	public String toIndex() {
-		 log.debug("请求路径： " + "/");
-		 log.debug("返回页面： " + "/WEB-INF/view/index/index.html");
+		 log.debug(" -- > ['toIndex'] --> [ '/' ]  --> [ '/WEB-INF/view/index/index.html' ]");
 		return "index/index";
 	}
 
@@ -42,5 +49,17 @@ public class Forward {
 	@RequestMapping("toWebSocket")
 	public String webSocket() {
 		return "index/websockettest";
+	}
+	
+	@RequestMapping("testSql")
+	public void test() {
+		
+		User entity = new User();
+		
+		entity.setId(IdToolUtil.getUUID());
+		entity.setUserName("sunwx");
+		entity.setNickName("孙文祥");
+		userRepositoryImp.save(entity);
+		
 	}
 }

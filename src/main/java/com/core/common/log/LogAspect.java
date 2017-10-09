@@ -22,23 +22,9 @@ import com.sys.service.user.UserLogService;
 @Component
 public class LogAspect {
 
-	@Autowired
-	private UserLogService userLogService;
-	@Autowired
-	private UserLog userLog;
 
 	public LogAspect() {
 	}
-
-	// @Pointcut("execution(* com.core.dao.MysqlBaseDaoImp.*(..))")
-	// public void daoAspect() {
-	//
-	// }
-
-	// @Before("daoAspect()")
-	// public void daoDeforeShow(JoinPoint jp) {
-	// System.out.println("=================dao---" + jp.getSignature().getName());
-	// }
 
 	@Pointcut("execution(* com.sys.controller..*.*(..))")
 	public void controllerAspect() {
@@ -47,6 +33,7 @@ public class LogAspect {
 
 	@Before("controllerAspect()")
 	public void controllerBeforeShow(JoinPoint jp) {
-		System.out.println("--------------------------------------------"+jp.getSignature().getName());
+		// System.out.println("--------------------------------------------"+jp.getSignature().getName());
+		System.out.println("-----------------------------------------------------------");
 	}
 }
