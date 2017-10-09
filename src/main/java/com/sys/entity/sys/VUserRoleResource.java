@@ -1,4 +1,5 @@
 package com.sys.entity.sys;
+
 import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.Column;
@@ -7,16 +8,15 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
-   /**
-    * vUserRoleResource 实体类
-    * Thu Sep 28 18:34:12 CST 2017 孙文祥
-    */ 
+/**
+ * vUserRoleResource 实体类 Mon Oct 09 16:32:00 CST 2017 孙文祥
+ */
 @Component
 @Entity
 @Table(name = "v_user_role_resource")
-public class VUserRoleResource{
+public class VUserRoleResource {
 
-	/**分享用户id*/
+	/** 分享用户id */
 	@Id
 	@Column(name = "user_id", length = 32)
 	private String userId;
@@ -25,15 +25,15 @@ public class VUserRoleResource{
 	@Column(name = "role_id", length = 32)
 	private String roleId;
 
-	/**分享id*/
+	/** 分享id */
 	@Column(name = "id", length = 32)
 	private String id;
 
-	/**资源级别*/
+	/** 资源级别 */
 	@Column(name = "level", length = 4)
 	private byte level;
 
-	/**资源名称*/
+	/** 资源名称 */
 	@Column(name = "name", length = 32)
 	private String name;
 
@@ -41,7 +41,7 @@ public class VUserRoleResource{
 	@Column(name = "parent_id", length = 32)
 	private String parentId;
 
-	/**权限编码*/
+	/** 权限编码 */
 	@Column(name = "perm_code", length = 64)
 	private String permCode;
 
@@ -49,23 +49,23 @@ public class VUserRoleResource{
 	@Column(name = "remark", length = 255)
 	private String remark;
 
-	/**排序*/
+	/** 排序 */
 	@Column(name = "sort", length = 8)
 	private int sort;
 
-	/**1可用 0禁用*/
+	/** 1可用 0禁用 */
 	@Column(name = "status", length = 2)
 	private String status;
 
-	/**1菜单 2 权限 */
+	/** 1菜单 2 权限 */
 	@Column(name = "type", length = 20)
 	private String type;
 
-	/**资源地址*/
+	/** 资源地址 */
 	@Column(name = "url", length = 64)
 	private String url;
 
-	/**时间*/
+	/** 时间 */
 	@Column(name = "create_time", length = 19)
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date createTime;
@@ -74,10 +74,13 @@ public class VUserRoleResource{
 	@Column(name = "iconCls", length = 64)
 	private String iconCls;
 
-	public VUserRoleResource(){
+	public VUserRoleResource() {
 		super();
 	}
-	public VUserRoleResource(String userId, String roleId, String id, byte level, String name, String parentId, String permCode, String remark, int sort, String status, String type, String url, Date createTime, String iconCls) {
+
+	public VUserRoleResource(String userId, String roleId, String id, byte level, String name, String parentId,
+			String permCode, String remark, int sort, String status, String type, String url, Date createTime,
+			String iconCls) {
 		super();
 		this.userId = userId;
 		this.roleId = roleId;
@@ -94,148 +97,152 @@ public class VUserRoleResource{
 		this.createTime = createTime;
 		this.iconCls = iconCls;
 	}
-	public void setUserId(String userId){
 
-		this.userId=userId;
+	public void setUserId(String userId) {
+
+		this.userId = userId;
 	}
 
-	public String getUserId(){
+	public String getUserId() {
 
 		return userId;
 	}
 
-	public void setRoleId(String roleId){
+	public void setRoleId(String roleId) {
 
-		this.roleId=roleId;
+		this.roleId = roleId;
 	}
 
-	public String getRoleId(){
+	public String getRoleId() {
 
 		return roleId;
 	}
 
-	public void setId(String id){
+	public void setId(String id) {
 
-		this.id=id;
+		this.id = id;
 	}
 
-	public String getId(){
+	public String getId() {
 
 		return id;
 	}
 
-	public void setLevel(byte level){
+	public void setLevel(byte level) {
 
-		this.level=level;
+		this.level = level;
 	}
 
-	public byte getLevel(){
+	public byte getLevel() {
 
 		return level;
 	}
 
-	public void setName(String name){
+	public void setName(String name) {
 
-		this.name=name;
+		this.name = name;
 	}
 
-	public String getName(){
+	public String getName() {
 
 		return name;
 	}
 
-	public void setParentId(String parentId){
+	public void setParentId(String parentId) {
 
-		this.parentId=parentId;
+		this.parentId = parentId;
 	}
 
-	public String getParentId(){
+	public String getParentId() {
 
 		return parentId;
 	}
 
-	public void setPermCode(String permCode){
+	public void setPermCode(String permCode) {
 
-		this.permCode=permCode;
+		this.permCode = permCode;
 	}
 
-	public String getPermCode(){
+	public String getPermCode() {
 
 		return permCode;
 	}
 
-	public void setRemark(String remark){
+	public void setRemark(String remark) {
 
-		this.remark=remark;
+		this.remark = remark;
 	}
 
-	public String getRemark(){
+	public String getRemark() {
 
 		return remark;
 	}
 
-	public void setSort(int sort){
+	public void setSort(int sort) {
 
-		this.sort=sort;
+		this.sort = sort;
 	}
 
-	public int getSort(){
+	public int getSort() {
 
 		return sort;
 	}
 
-	public void setStatus(String status){
+	public void setStatus(String status) {
 
-		this.status=status;
+		this.status = status;
 	}
 
-	public String getStatus(){
+	public String getStatus() {
 
 		return status;
 	}
 
-	public void setType(String type){
+	public void setType(String type) {
 
-		this.type=type;
+		this.type = type;
 	}
 
-	public String getType(){
+	public String getType() {
 
 		return type;
 	}
 
-	public void setUrl(String url){
+	public void setUrl(String url) {
 
-		this.url=url;
+		this.url = url;
 	}
 
-	public String getUrl(){
+	public String getUrl() {
 
 		return url;
 	}
 
-	public void setCreateTime(Date createTime){
+	public void setCreateTime(Date createTime) {
 
-		this.createTime=createTime;
+		this.createTime = createTime;
 	}
 
-	public Date getCreateTime(){
+	public Date getCreateTime() {
 
 		return createTime;
 	}
 
-	public void setIconCls(String iconCls){
+	public void setIconCls(String iconCls) {
 
-		this.iconCls=iconCls;
+		this.iconCls = iconCls;
 	}
 
-	public String getIconCls(){
+	public String getIconCls() {
 
 		return iconCls;
 	}
+
 	@Override
 	public String toString() {
-		return "VUserRoleResource [userId=" + userId + ", roleId=" + roleId + ", id=" + id + ", level=" + level + ", name=" + name + ", parentId=" + parentId + ", permCode=" + permCode + ", remark=" + remark + ", sort=" + sort + ", status=" + status + ", type=" + type + ", url=" + url + ", createTime=" + createTime + ", iconCls=" + iconCls + "]";
+		return "VUserRoleResource [userId=" + userId + ", roleId=" + roleId + ", id=" + id + ", level=" + level
+				+ ", name=" + name + ", parentId=" + parentId + ", permCode=" + permCode + ", remark=" + remark
+				+ ", sort=" + sort + ", status=" + status + ", type=" + type + ", url=" + url + ", createTime="
+				+ createTime + ", iconCls=" + iconCls + "]";
 	}
 }
-

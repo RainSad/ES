@@ -1,4 +1,5 @@
 package com.sys.entity.sys;
+
 import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.Column;
@@ -7,25 +8,24 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
-   /**
-    * sysResources 实体类
-    * Thu Sep 28 18:34:11 CST 2017 孙文祥
-    */ 
+/**
+ * sysResources 实体类 Mon Oct 09 16:32:00 CST 2017 孙文祥
+ */
 @Component
 @Entity
 @Table(name = "sys_resources")
-public class SysResources{
+public class SysResources {
 
-	/**分享id*/
+	/** 分享id */
 	@Id
 	@Column(name = "id", length = 32)
 	private String id;
 
-	/**资源名称*/
+	/** 资源名称 */
 	@Column(name = "name", length = 32)
 	private String name;
 
-	/**资源地址*/
+	/** 资源地址 */
 	@Column(name = "url", length = 64)
 	private String url;
 
@@ -33,7 +33,7 @@ public class SysResources{
 	@Column(name = "parent_id", length = 32)
 	private String parentId;
 
-	/**权限编码*/
+	/** 权限编码 */
 	@Column(name = "perm_code", length = 64)
 	private String permCode;
 
@@ -41,19 +41,19 @@ public class SysResources{
 	@Column(name = "iconCls", length = 64)
 	private String iconCls;
 
-	/**资源级别*/
+	/** 资源级别 */
 	@Column(name = "level", length = 4)
 	private byte level;
 
-	/**排序*/
+	/** 排序 */
 	@Column(name = "sort", length = 8)
 	private int sort;
 
-	/**1菜单 2 权限 */
+	/** 1菜单 2 权限 */
 	@Column(name = "type", length = 20)
 	private String type;
 
-	/**1可用 0禁用*/
+	/** 1可用 0禁用 */
 	@Column(name = "status", length = 2)
 	private String status;
 
@@ -61,15 +61,17 @@ public class SysResources{
 	@Column(name = "remark", length = 255)
 	private String remark;
 
-	/**时间*/
+	/** 时间 */
 	@Column(name = "create_time", length = 19)
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date createTime;
 
-	public SysResources(){
+	public SysResources() {
 		super();
 	}
-	public SysResources(String id, String name, String url, String parentId, String permCode, String iconCls, byte level, int sort, String type, String status, String remark, Date createTime) {
+
+	public SysResources(String id, String name, String url, String parentId, String permCode, String iconCls,
+			byte level, int sort, String type, String status, String remark, Date createTime) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -84,128 +86,131 @@ public class SysResources{
 		this.remark = remark;
 		this.createTime = createTime;
 	}
-	public void setId(String id){
 
-		this.id=id;
+	public void setId(String id) {
+
+		this.id = id;
 	}
 
-	public String getId(){
+	public String getId() {
 
 		return id;
 	}
 
-	public void setName(String name){
+	public void setName(String name) {
 
-		this.name=name;
+		this.name = name;
 	}
 
-	public String getName(){
+	public String getName() {
 
 		return name;
 	}
 
-	public void setUrl(String url){
+	public void setUrl(String url) {
 
-		this.url=url;
+		this.url = url;
 	}
 
-	public String getUrl(){
+	public String getUrl() {
 
 		return url;
 	}
 
-	public void setParentId(String parentId){
+	public void setParentId(String parentId) {
 
-		this.parentId=parentId;
+		this.parentId = parentId;
 	}
 
-	public String getParentId(){
+	public String getParentId() {
 
 		return parentId;
 	}
 
-	public void setPermCode(String permCode){
+	public void setPermCode(String permCode) {
 
-		this.permCode=permCode;
+		this.permCode = permCode;
 	}
 
-	public String getPermCode(){
+	public String getPermCode() {
 
 		return permCode;
 	}
 
-	public void setIconCls(String iconCls){
+	public void setIconCls(String iconCls) {
 
-		this.iconCls=iconCls;
+		this.iconCls = iconCls;
 	}
 
-	public String getIconCls(){
+	public String getIconCls() {
 
 		return iconCls;
 	}
 
-	public void setLevel(byte level){
+	public void setLevel(byte level) {
 
-		this.level=level;
+		this.level = level;
 	}
 
-	public byte getLevel(){
+	public byte getLevel() {
 
 		return level;
 	}
 
-	public void setSort(int sort){
+	public void setSort(int sort) {
 
-		this.sort=sort;
+		this.sort = sort;
 	}
 
-	public int getSort(){
+	public int getSort() {
 
 		return sort;
 	}
 
-	public void setType(String type){
+	public void setType(String type) {
 
-		this.type=type;
+		this.type = type;
 	}
 
-	public String getType(){
+	public String getType() {
 
 		return type;
 	}
 
-	public void setStatus(String status){
+	public void setStatus(String status) {
 
-		this.status=status;
+		this.status = status;
 	}
 
-	public String getStatus(){
+	public String getStatus() {
 
 		return status;
 	}
 
-	public void setRemark(String remark){
+	public void setRemark(String remark) {
 
-		this.remark=remark;
+		this.remark = remark;
 	}
 
-	public String getRemark(){
+	public String getRemark() {
 
 		return remark;
 	}
 
-	public void setCreateTime(Date createTime){
+	public void setCreateTime(Date createTime) {
 
-		this.createTime=createTime;
+		this.createTime = createTime;
 	}
 
-	public Date getCreateTime(){
+	public Date getCreateTime() {
 
 		return createTime;
 	}
+
 	@Override
 	public String toString() {
-		return "SysResources [id=" + id + ", name=" + name + ", url=" + url + ", parentId=" + parentId + ", permCode=" + permCode + ", iconCls=" + iconCls + ", level=" + level + ", sort=" + sort + ", type=" + type + ", status=" + status + ", remark=" + remark + ", createTime=" + createTime + "]";
+		return "SysResources [id=" + id + ", name=" + name + ", url=" + url + ", parentId=" + parentId + ", permCode="
+				+ permCode + ", iconCls=" + iconCls + ", level=" + level + ", sort=" + sort + ", type=" + type
+				+ ", status=" + status + ", remark=" + remark + ", createTime=" + createTime + "]";
 	}
 }
-

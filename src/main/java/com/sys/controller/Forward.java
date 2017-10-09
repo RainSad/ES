@@ -1,6 +1,5 @@
 package com.sys.controller;
 
-
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,44 +21,52 @@ import com.sys.repository.user.UserRepositoryImp;
  */
 @Controller
 public class Forward {
-	
-	 Logger log = Logger.getLogger(Forward.class);
-	 
-	 @Autowired
-	 UserRepositoryImp userRepositoryImp;
+
+	Logger log = Logger.getLogger(Forward.class);
+
+	@Autowired
+	UserRepositoryImp userRepositoryImp;
 
 	@RequestMapping("/")
 	public String toIndex() {
-		 log.debug(" -- > ['toIndex'] --> [ '/' ]  --> [ '/WEB-INF/view/index/index.html' ]");
+		log.debug(" -- > ['toIndex'] --> [ '/' ]  --> [ '/WEB-INF/view/index/index.html' ]");
+		return "index/index";
+	}
+	
+	@RequestMapping("/toIndex")
+	public String toIndex2() {
+		log.debug(" -- > ['toIndex'] --> [ '/toIndex' ]  --> [ '/WEB-INF/view/index/index.html' ]");
 		return "index/index";
 	}
 
+
 	@RequestMapping("toLogin")
 	public String toLogin() {
-
+		log.debug(" -- > ['toLogin'] --> [ '/toLogin' ]  --> [ '/WEB-INF/view/index/login.html' ]");
 		return "index/login";
 	}
 
 	@RequestMapping("toRigister")
 	public String toRegister() {
-
+		log.debug(" -- > ['toRegister'] --> [ '/toRigister' ]  --> [ '/WEB-INF/view/index/register.html' ]");
 		return "index/register";
 	}
 
 	@RequestMapping("toWebSocket")
 	public String webSocket() {
+
 		return "index/websockettest";
 	}
-	
+
 	@RequestMapping("testSql")
 	public void test() {
-		
+
 		User entity = new User();
-		
+
 		entity.setId(IdToolUtil.getUUID());
 		entity.setUserName("sunwx");
 		entity.setNickName("孙文祥");
 		userRepositoryImp.save(entity);
-		
+
 	}
 }

@@ -1,29 +1,29 @@
 package com.sys.entity.sys;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
-   /**
-    * sysArea 实体类
-    * Thu Sep 28 18:34:11 CST 2017 孙文祥
-    */ 
+/**
+ * sysArea 实体类 Mon Oct 09 16:32:00 CST 2017 孙文祥
+ */
 @Component
 @Entity
 @Table(name = "sys_area")
-public class SysArea{
+public class SysArea {
 
-	/**分享id*/
+	/** 分享id */
 	@Id
 	@Column(name = "id", length = 32)
 	private String id;
 
-	/**城市code*/
+	/** 城市code */
 	@Column(name = "area_code", length = 16)
 	private String areaCode;
 
-	/**区域名称*/
+	/** 区域名称 */
 	@Column(name = "area_name", length = 128)
 	private String areaName;
 
@@ -31,34 +31,36 @@ public class SysArea{
 	@Column(name = "parent_id", length = 255)
 	private String parentId;
 
-	/**简称*/
+	/** 简称 */
 	@Column(name = "short_name", length = 32)
 	private String shortName;
 
-	/**经度*/
+	/** 经度 */
 	@Column(name = "lng", length = 64)
 	private String lng;
 
-	/**维度*/
+	/** 维度 */
 	@Column(name = "lat", length = 64)
 	private String lat;
 
-	/**资源级别*/
+	/** 资源级别 */
 	@Column(name = "level", length = 8)
 	private int level;
 
-	/**排序*/
+	/** 排序 */
 	@Column(name = "sort", length = 8)
 	private int sort;
 
-	/**1可用 0禁用*/
+	/** 1可用 0禁用 */
 	@Column(name = "status", length = 2)
 	private String status;
 
-	public SysArea(){
+	public SysArea() {
 		super();
 	}
-	public SysArea(String id, String areaCode, String areaName, String parentId, String shortName, String lng, String lat, int level, int sort, String status) {
+
+	public SysArea(String id, String areaCode, String areaName, String parentId, String shortName, String lng,
+			String lat, int level, int sort, String status) {
 		super();
 		this.id = id;
 		this.areaCode = areaCode;
@@ -71,108 +73,111 @@ public class SysArea{
 		this.sort = sort;
 		this.status = status;
 	}
-	public void setId(String id){
 
-		this.id=id;
+	public void setId(String id) {
+
+		this.id = id;
 	}
 
-	public String getId(){
+	public String getId() {
 
 		return id;
 	}
 
-	public void setAreaCode(String areaCode){
+	public void setAreaCode(String areaCode) {
 
-		this.areaCode=areaCode;
+		this.areaCode = areaCode;
 	}
 
-	public String getAreaCode(){
+	public String getAreaCode() {
 
 		return areaCode;
 	}
 
-	public void setAreaName(String areaName){
+	public void setAreaName(String areaName) {
 
-		this.areaName=areaName;
+		this.areaName = areaName;
 	}
 
-	public String getAreaName(){
+	public String getAreaName() {
 
 		return areaName;
 	}
 
-	public void setParentId(String parentId){
+	public void setParentId(String parentId) {
 
-		this.parentId=parentId;
+		this.parentId = parentId;
 	}
 
-	public String getParentId(){
+	public String getParentId() {
 
 		return parentId;
 	}
 
-	public void setShortName(String shortName){
+	public void setShortName(String shortName) {
 
-		this.shortName=shortName;
+		this.shortName = shortName;
 	}
 
-	public String getShortName(){
+	public String getShortName() {
 
 		return shortName;
 	}
 
-	public void setLng(String lng){
+	public void setLng(String lng) {
 
-		this.lng=lng;
+		this.lng = lng;
 	}
 
-	public String getLng(){
+	public String getLng() {
 
 		return lng;
 	}
 
-	public void setLat(String lat){
+	public void setLat(String lat) {
 
-		this.lat=lat;
+		this.lat = lat;
 	}
 
-	public String getLat(){
+	public String getLat() {
 
 		return lat;
 	}
 
-	public void setLevel(int level){
+	public void setLevel(int level) {
 
-		this.level=level;
+		this.level = level;
 	}
 
-	public int getLevel(){
+	public int getLevel() {
 
 		return level;
 	}
 
-	public void setSort(int sort){
+	public void setSort(int sort) {
 
-		this.sort=sort;
+		this.sort = sort;
 	}
 
-	public int getSort(){
+	public int getSort() {
 
 		return sort;
 	}
 
-	public void setStatus(String status){
+	public void setStatus(String status) {
 
-		this.status=status;
+		this.status = status;
 	}
 
-	public String getStatus(){
+	public String getStatus() {
 
 		return status;
 	}
+
 	@Override
 	public String toString() {
-		return "SysArea [id=" + id + ", areaCode=" + areaCode + ", areaName=" + areaName + ", parentId=" + parentId + ", shortName=" + shortName + ", lng=" + lng + ", lat=" + lat + ", level=" + level + ", sort=" + sort + ", status=" + status + "]";
+		return "SysArea [id=" + id + ", areaCode=" + areaCode + ", areaName=" + areaName + ", parentId=" + parentId
+				+ ", shortName=" + shortName + ", lng=" + lng + ", lat=" + lat + ", level=" + level + ", sort=" + sort
+				+ ", status=" + status + "]";
 	}
 }
-

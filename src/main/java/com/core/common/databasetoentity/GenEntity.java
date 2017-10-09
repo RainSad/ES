@@ -30,7 +30,9 @@ public class GenEntity {
 
 	// 配置部分
 	private String packageOutPath = "main.java.com.sys.entity.sys";// 指定实体生成所在包的路径
-	private int startWrite = 10; // 生成包名的时候读取的位置 main.java.com.sys.entity.sys -> com.sys.entity.sys
+	private boolean f_rewrite = false;// 是否覆盖导入表
+	private int startWrite = 10; // 生成包名 生成包名的时候读取的位置 main.java.com.sys.entity.sys -> com.sys.entity.sys
+									// 由于maven包名自动过滤main.java
 	private String authorName = "孙文祥";// 作者名字
 	private static String dataBaseName = "es";// 数据库名
 	private boolean f_constructor = true;// 是否生成构造方法
@@ -38,13 +40,9 @@ public class GenEntity {
 	private boolean f_note = true; // 是否根据数据库字段生成注释
 	private boolean f_class_note = true;// 是否生成类注释
 	private boolean f_toToString = true;// 是否生成toString方法
+	private static boolean f_print_note = false;// 是否打印注释
+	private static boolean f_print_table = true;// 是否打印表名
 	
-	
-	private String[] colnames; // 列名数组
-	private String[] colTypes; // 列名类型数组
-	private int[] colSizes; // 列名大小数组
-	private boolean f_util = false; // 是否需要导入包java.util.*
-	private boolean f_sql = false; // 是否需要导入包java.sql.*
 
 	// 数据库连接
 	private static final String URL = "jdbc:mysql://localhost:3306/" + dataBaseName
@@ -52,6 +50,12 @@ public class GenEntity {
 	private static final String NAME = "root";
 	private static final String PASS = "sun123";
 	private static final String DRIVER = "com.mysql.jdbc.Driver";
+
+	private String[] colnames; // 列名数组
+	private String[] colTypes; // 列名类型数组
+	private int[] colSizes; // 列名大小数组
+	private boolean f_util = false; // 是否需要导入包java.util.*
+	private boolean f_sql = false; // 是否需要导入包java.sql.*
 
 	// 获得链接
 	public static Connection getConnection() {
@@ -79,7 +83,9 @@ public class GenEntity {
 			String tableName = rs.getString(1);
 			tables.add(tableName);
 		}
-		tables.forEach(System.out::println);
+		if (f_print_table) {
+			tables.forEach(System.out::println);
+		}
 		rs.close();
 		stmt.close();
 		return tables;
@@ -132,6 +138,12 @@ public class GenEntity {
 				System.out.println("src/?/" + path.substring(path.lastIndexOf("/com/", path.length())));
 				String outputPath = directory.getAbsolutePath() + "/src/" + this.packageOutPath.replace(".", "/") + "/"
 						+ initcap(CamelCharOrUnderLine.underlineToCamel(tablename)) + ".java";
+				boolean file = new File(outputPath).isFile();
+				if (!f_rewrite) {
+					if (file) {
+						return;
+					}
+				}
 				FileWriter fw = new FileWriter(outputPath);
 				PrintWriter pw = new PrintWriter(fw);
 				pw.println(content);
@@ -187,7 +199,7 @@ public class GenEntity {
 			sb.append("    */ \r\n");
 		}
 		// 实体部分
-		if(f_hibernate_annotation) {
+		if (f_hibernate_annotation) {
 			sb.append("@Component" + "\r\n");
 			sb.append("@Entity" + "\r\n");
 			sb.append("@Table(name = \"" + tablename + "\")" + "\r\n");
@@ -198,7 +210,7 @@ public class GenEntity {
 			processAllConstructor(sb, tablename);
 		}
 		processAllMethod(sb);// get set方法
-		if(f_toToString) {
+		if (f_toToString) {
 			processToString(sb, tablename);
 		}
 		sb.append("\r\n}\r\n");
@@ -240,9 +252,11 @@ public class GenEntity {
 				+ initcap(CamelCharOrUnderLine.underlineToCamel(tablename)) + " [");
 		for (int i = 0; i < colnames.length; i++) {
 			if (i == 0) {
-				sb.append(CamelCharOrUnderLine.underlineToCamel(colnames[i]) + "=\"" + " + " + CamelCharOrUnderLine.underlineToCamel(colnames[i]) + " + ");
+				sb.append(CamelCharOrUnderLine.underlineToCamel(colnames[i]) + "=\"" + " + "
+						+ CamelCharOrUnderLine.underlineToCamel(colnames[i]) + " + ");
 			} else {
-				sb.append("\", " + CamelCharOrUnderLine.underlineToCamel(colnames[i]) + "=\"" + " + " + CamelCharOrUnderLine.underlineToCamel(colnames[i]) + " + ");
+				sb.append("\", " + CamelCharOrUnderLine.underlineToCamel(colnames[i]) + "=\"" + " + "
+						+ CamelCharOrUnderLine.underlineToCamel(colnames[i]) + " + ");
 			}
 		}
 		sb.append("\"]\";");
@@ -398,7 +412,9 @@ public class GenEntity {
 			while (rs != null && rs.next()) {
 				map.put(rs.getString("Field"), rs.getString("Comment"));
 				map.forEach((k, v) -> {
-					System.out.println(k + ":" + v);
+					if (f_print_note) {
+						System.out.println(k + ":" + v);
+					}
 				});
 			}
 			rs.close();

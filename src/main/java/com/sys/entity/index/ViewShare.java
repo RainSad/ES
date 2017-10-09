@@ -1,25 +1,232 @@
 package com.sys.entity.index;
 
-   /**
-    * view_share 实体类
-    * Mon Sep 18 17:25:46 CST 2017 孙文祥
-    */ 
+import java.util.Date;
+import org.springframework.format.annotation.DateTimeFormat;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import org.springframework.stereotype.Component;
 
+/**
+ * viewShare 实体类 Mon Oct 09 17:12:23 CST 2017 孙文祥
+ */
+@Component
+@Entity
+@Table(name = "view_share")
+public class ViewShare {
 
-public class ViewShare{
+	/** 分享id */
+	@Id
+	@Column(name = "id", length = 32)
 	private String id;
+
+	/** 分享用户id */
+	@Column(name = "user_id", length = 32)
 	private String userId;
-	public void setId(String id){
-	this.id=id;
+
+	/** 创建时间 */
+	@Column(name = "creat_time", length = 19)
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	private Date creatTime;
+
+	/** 点击次数 */
+	@Column(name = "click_num", length = 11)
+	private int clickNum;
+
+	/** 赞次数 */
+	@Column(name = "like_num", length = 11)
+	private int likeNum;
+
+	/** 图片地址 */
+	@Column(name = "img_url", length = 32)
+	private String imgUrl;
+
+	/** 标题 */
+	@Column(name = "title", length = 100)
+	private String title;
+
+	/** 内容 */
+	@Column(name = "message", length = 5000)
+	private String message;
+
+	/** 状态，0为显示，1为不现实 */
+	@Column(name = "status", length = 2)
+	private String status;
+
+	/** 地址 */
+	@Column(name = "address", length = 10)
+	private String address;
+
+	/** 自评分数 */
+	@Column(name = "self_evaluation", length = 3)
+	private int selfEvaluation;
+
+	/** 游客评分 */
+	@Column(name = "other_evaluation", length = 3)
+	private int otherEvaluation;
+
+	/** 评论id */
+	@Column(name = "comment_id", length = 32)
+	private String commentId;
+
+	public ViewShare() {
+		super();
 	}
-	public String getId(){
+
+	public ViewShare(String id, String userId, Date creatTime, int clickNum, int likeNum, String imgUrl, String title,
+			String message, String status, String address, int selfEvaluation, int otherEvaluation, String commentId) {
+		super();
+		this.id = id;
+		this.userId = userId;
+		this.creatTime = creatTime;
+		this.clickNum = clickNum;
+		this.likeNum = likeNum;
+		this.imgUrl = imgUrl;
+		this.title = title;
+		this.message = message;
+		this.status = status;
+		this.address = address;
+		this.selfEvaluation = selfEvaluation;
+		this.otherEvaluation = otherEvaluation;
+		this.commentId = commentId;
+	}
+
+	public void setId(String id) {
+
+		this.id = id;
+	}
+
+	public String getId() {
+
 		return id;
 	}
-	public void setUserId(String userId){
-	this.userId=userId;
+
+	public void setUserId(String userId) {
+
+		this.userId = userId;
 	}
-	public String getUserId(){
+
+	public String getUserId() {
+
 		return userId;
 	}
-}
 
+	public void setCreatTime(Date creatTime) {
+
+		this.creatTime = creatTime;
+	}
+
+	public Date getCreatTime() {
+
+		return creatTime;
+	}
+
+	public void setClickNum(int clickNum) {
+
+		this.clickNum = clickNum;
+	}
+
+	public int getClickNum() {
+
+		return clickNum;
+	}
+
+	public void setLikeNum(int likeNum) {
+
+		this.likeNum = likeNum;
+	}
+
+	public int getLikeNum() {
+
+		return likeNum;
+	}
+
+	public void setImgUrl(String imgUrl) {
+
+		this.imgUrl = imgUrl;
+	}
+
+	public String getImgUrl() {
+
+		return imgUrl;
+	}
+
+	public void setTitle(String title) {
+
+		this.title = title;
+	}
+
+	public String getTitle() {
+
+		return title;
+	}
+
+	public void setMessage(String message) {
+
+		this.message = message;
+	}
+
+	public String getMessage() {
+
+		return message;
+	}
+
+	public void setStatus(String status) {
+
+		this.status = status;
+	}
+
+	public String getStatus() {
+
+		return status;
+	}
+
+	public void setAddress(String address) {
+
+		this.address = address;
+	}
+
+	public String getAddress() {
+
+		return address;
+	}
+
+	public void setSelfEvaluation(int selfEvaluation) {
+
+		this.selfEvaluation = selfEvaluation;
+	}
+
+	public int getSelfEvaluation() {
+
+		return selfEvaluation;
+	}
+
+	public void setOtherEvaluation(int otherEvaluation) {
+
+		this.otherEvaluation = otherEvaluation;
+	}
+
+	public int getOtherEvaluation() {
+
+		return otherEvaluation;
+	}
+
+	public void setCommentId(String commentId) {
+
+		this.commentId = commentId;
+	}
+
+	public String getCommentId() {
+
+		return commentId;
+	}
+
+	@Override
+	public String toString() {
+		return "ViewShare [id=" + id + ", userId=" + userId + ", creatTime=" + creatTime + ", clickNum=" + clickNum
+				+ ", likeNum=" + likeNum + ", imgUrl=" + imgUrl + ", title=" + title + ", message=" + message
+				+ ", status=" + status + ", address=" + address + ", selfEvaluation=" + selfEvaluation
+				+ ", otherEvaluation=" + otherEvaluation + ", commentId=" + commentId + "]";
+	}
+}
