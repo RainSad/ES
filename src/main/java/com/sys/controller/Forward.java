@@ -51,6 +51,12 @@ public class Forward {
 		log.debug(" -- > ['toRegister'] --> [ '/toRigister' ]  --> [ '/WEB-INF/view/index/register.html' ]");
 		return "index/register";
 	}
+	
+	@RequestMapping("toDetail")
+	public String toDetail() {
+		log.debug(" -- > ['toDetail'] --> [ '/toRigister' ]  --> [ '/WEB-INF/view/index/detail.html' ]");
+		return "index/detail";
+	}
 
 	@RequestMapping("toWebSocket")
 	public String webSocket() {

@@ -2,11 +2,12 @@ package com.sys.entity.resdata;
 
 /**
  * 通用返回数据格式
-* @Description: 
-* @ClassName: JSONResponse 
-* @author 孙文祥 
-* @date 2017年9月19日 下午5:55:25 
-*
+ * 
+ * @Description:
+ * @ClassName: JSONResponse
+ * @author 孙文祥
+ * @date 2017年9月19日 下午5:55:25
+ *
  */
 public class JSONResponse {
 
@@ -19,10 +20,28 @@ public class JSONResponse {
 	}
 
 	/**
+	  * 返回数据格式
+	 * 
+	 * @param status
+	 *            状态位 1 为成功 0为失败
+	 * @param data
+	 *            返回数据主体
+	 */
+	public JSONResponse(Integer status, Object data) {
+		super();
+		this.status = status;
+		this.data = data;
+	}
+
+	/**
 	 * 返回数据格式
-	 * @param status 状态位 1 为成功 0为失败
-	 * @param data 返回数据主体
-	 * @param count 数据条数
+	 * 
+	 * @param status
+	 *            状态位 1 为成功 0为失败
+	 * @param data
+	 *            返回数据主体
+	 * @param count
+	 *            数据条数
 	 */
 	public JSONResponse(Integer status, Object data, Integer count) {
 		super();

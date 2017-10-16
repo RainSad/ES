@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="首页">
     <meta name="author" content="sunwx">
-    <title>首页</title>
+    <title>主页</title>
     <link rel="stylesheet"
           href="res/commom/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet"
@@ -17,8 +17,51 @@
     <link rel="stylesheet"
           href="res/commom/easyui/plugins/summernote/summernote.css">
     <link rel="stylesheet" href="res/css/index/index.css">
+    <script src="res/commom/easyui/plugins/jquery-3.2.1.min.js"></script>
+    <script src="res/commom/easyui/plugins/jqthumb.min.js"></script>
+    <script type="text/javascript">
+        function DrawImage(obj) {
+            $(obj).jqthumb({
+                classname: 'jqthumb',
+                width: '100%',
+                height: '100%',
+                position: {y: '50%', x: '50%'},
+                zoom: '1',
+                method: 'auto',
+            });
+        }
+
+        function DrawImage2(obj) {
+            $(obj).jqthumb({
+                classname: 'jqthumb',
+                width: '140px',
+                height: '140px',
+                position: {y: '50%', x: '50%'},
+                zoom: '1',
+                method: 'auto',
+                after: function (obj) {      // callback when each image is cropped.
+                    $(obj).addClass("img-circle")
+                },
+            });
+        }
+
+        function DrawImage3(obj, width, height) {
+            $(obj).jqthumb({
+                classname: 'jqthumb',
+                width: '500px',
+                height: '280px',
+                position: {y: '50%', x: '50%'},
+                zoom: '1',
+                method: 'auto',
+                after: function (obj) {      // callback when each image is cropped.
+                    $(obj).addClass("img-responsive")
+                },
+            });
+        }
+    </script>
 </head>
 <body>
+
 <div class="navbar-wrapper">
     <div class="container">
         <nav class="navbar navbar-inverse navbar-static-top"
@@ -71,19 +114,19 @@
     </ol>
     <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <img src="res/image/index/lunbo2.jpg" alt="First slide"/>
+            <img src="res/image/index/lunbo2.jpg" alt="First slide" onload="DrawImage(this)"/>
             <div class="container">
                 <div class="carousel-caption">介绍》》》》》》》》》》》》》》》》》》》》》》》》》</div>
             </div>
         </div>
         <div class="item">
-            <img src="res/image/index/lunbo1.jpg" alt="Second slide"/>
+            <img src="res/image/index/lunbo1.jpg" alt="Second slide" onload="DrawImage(this)"/>
             <div class="container">
                 <div class="carousel-caption">介绍》》》》》》》》》》》》》》》》》》》》》》》》》</div>
             </div>
         </div>
         <div class="item">
-            <img src="res/image/index/lunbo0.jpg" alt="Third slide"/>
+            <img src="res/image/index/lunbo0.jpg" alt="Third slide" onload="DrawImage(this)"/>
             <div class="container">
                 <div class="carousel-caption">介绍》》》》》》》》》》》》》》》》》》》》》》》》》</div>
             </div>
@@ -101,11 +144,10 @@
 
 <!--==============================================================-->
 
-<div class="container marketing">
+<div class="container">
     <div class="row">
         <div class="col-lg-4">
-            <img src="res/image/index/icon1.jpg" class="img-circle"
-                 alt="Generic placeholder image" width="140px" height="140px"/>
+            <img src="res/image/index/icon1.jpg" class="img-circle" alt="Generic placeholder image" onload="DrawImage2(this)"/>
             <h2>Heading</h2>
             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis
                 euismod. Nullam id dolor id nibh ultricies vehicula ut id elit.
@@ -118,8 +160,7 @@
         </div>
 
         <div class="col-lg-4">
-            <img src="res/image/index/icon2.jpg" class="img-circle"
-                 alt="Generic placeholder image" width="140px" height="140px"/>
+            <img src="res/image/index/icon2.jpg" class="img-circle" alt="Generic placeholder image" onload="DrawImage2(this)"/>
             <h2>Heading</h2>
             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis
                 euismod. Nullam id dolor id nibh ultricies vehicula ut id elit.
@@ -132,8 +173,7 @@
         </div>
 
         <div class="col-lg-4">
-            <img src="res/image/index/icon3.jpg" class="img-circle"
-                 alt="Generic placeholder image" width="140px" height="140px"/>
+            <img src="res/image/index/icon3.jpg" class="img-circle" alt="Generic placeholder image" onload="DrawImage2(this)"/>
             <h2>Heading</h2>
             <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis
                 euismod. Nullam id dolor id nibh ultricies vehicula ut id elit.
@@ -149,11 +189,14 @@
 
     <!--================================================================-->
     <hr class="featurette-divider">
-    <div class="row ">
+    <div class="row " onclick="toDetail('351289fe8de64f42888d251c0a4f5085')">
         <div class="col-md-7">
-            <h2 class="featurette-heading">
-                First featurette heading. <span class="text-muted"> It'll
-						blow your mind. </span>
+            <h2>
+                First featurette heading.
+                <br>
+                <span class="text-muted">
+                    It'll blow your mind.
+                </span>
             </h2>
             <p class="lead">Donec ullamcorper nulla non metus auctor
                 fringilla. Vestibulum id ligula porta felis euismod semper.
@@ -161,7 +204,7 @@
                 Fusce dapibus, tellus ac cursus commodo.</p>
         </div>
         <div class="col-md-5">
-            <img src="res/image/index/dex1.jpg" class="img-responsive"/>
+            <img src="res/image/index/dex1.jpg" class="img-responsive" onload="DrawImage3(this)"/>
         </div>
     </div>
 
@@ -169,12 +212,15 @@
 
     <div class="row">
         <div class="col-md-5">
-            <img class="img-responsive" src="res/image/index/dex2.jpg">
+            <img class="img-responsive" src="res/image/index/dex2.jpg" onload="DrawImage3(this)">
         </div>
         <div class="col-md-7">
-            <h2 class="featurette-heading">
-                Oh yeah, it's that good. <span class="text-muted">See for
-						yourself.</span>
+            <h2 class="">
+                Oh yeah, it's that good.
+                <br>
+                <span class="text-muted">
+                    See for yourself.
+                </span>
             </h2>
             <p class="lead">Donec ullamcorper nulla non metus auctor
                 fringilla. Vestibulum id ligula porta felis euismod semper.
@@ -187,9 +233,12 @@
 
     <div class="row ">
         <div class="col-md-7">
-            <h2 class="featurette-heading">
-                First featurette heading. <span class="text-muted"> It'll
-						blow your mind. </span>
+            <h2 class="">
+                First featurette heading.
+                <br>
+                <span class="text-muted">
+                    It'll blow your mind.
+                </span>
             </h2>
             <p class="lead">Donec ullamcorper nulla non metus auctor
                 fringilla. Vestibulum id ligula porta felis euismod semper.
@@ -197,7 +246,7 @@
                 Fusce dapibus, tellus ac cursus commodo.</p>
         </div>
         <div class="col-md-5">
-            <img src="res/image/index/dex1.jpg" class="img-responsive"/>
+            <img src="res/image/index/dex1.jpg" class="img-responsive" onload="DrawImage3(this)"/>
         </div>
     </div>
 
@@ -205,12 +254,15 @@
 
     <div class="row">
         <div class="col-md-5">
-            <img class="img-responsive" src="res/image/index/dex3.jpeg">
+            <img class="img-responsive" src="res/image/index/dex3.jpeg" onload="DrawImage3(this)">
         </div>
         <div class="col-md-7">
-            <h2 class="featurette-heading">
-                Oh yeah, it's that good. <span class="text-muted">See for
-						yourself.</span>
+            <h2 class="">
+                Oh yeah, it's that good.
+                <br>
+                <span class="text-muted">
+                    See for yourself.
+                </span>
             </h2>
             <p class="lead">Donec ullamcorper nulla non metus auctor
                 fringilla. Vestibulum id ligula porta felis euismod semper.
@@ -255,9 +307,7 @@
                 <form enctype="multipart/form-data">
                     <input id="id" name="id" type="hidden" v-bind:value="info.id">
                     <div class="form-group">
-                        <label for="name">输入标题</label> <input type="text"
-                                                              class="form-control" name="title" id="title"
-                                                              placeholder="请输入分享标题，越夸张越好...">
+                        <label for="name">输入标题</label> <input type="text" class="form-control" name="title" id="title" placeholder="请输入分享标题，越夸张越好...">
                     </div>
                     <br> <label for="name">选择图片</label>
                     <div class="form-group">
@@ -279,10 +329,10 @@
 </div>
 <!-- 弹出提示框 info，为传入的数据  cancel和submit采用回调对应父组件的方法 -->
 <div id="confirmModel">
-	<confirm :info="info" @cancel="cancel" @submit="submit"></confirm>
+    <confirm :info="info" @cancel="cancel" @submit="submit"></confirm>
 </div>
 
-<script src="res/commom/easyui/plugins/jquery-3.2.1.min.js"></script>
+
 <script src="res/commom/vue/vue.min.js"></script>
 <script src="res/commom/easyui/plugins/fileinput.js"></script>
 <script src="res/commom/easyui/plugins/fileinput_locale_zh.js"></script>

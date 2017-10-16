@@ -32,5 +32,15 @@
 
 	<!-- 配置spring和springmvc的aop日志打印拦截，因为spring和springmvc分属两个不同额ioc容器，所以需要分别配置 -->
 	<aop:aspectj-autoproxy proxy-target-class="true" />
+	
+	<!-- spring mvc也需要读取部分配置文件，也就是spring和springmvc一共存在两份配置文件 -->
+	<bean id="workDirProperties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<!-- 文件存储地址配置 -->
+				<value>classpath:properties/workDir.properties</value>
+			</list>
+		</property>
+	</bean>
 
 </beans>

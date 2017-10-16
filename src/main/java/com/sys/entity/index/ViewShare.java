@@ -39,8 +39,8 @@ public class ViewShare {
 	private int likeNum;
 
 	/** 图片地址 */
-	@Column(name = "img_url", length = 32)
-	private String imgUrl;
+	@Column(name = "img_url_id", length = 32)
+	private String imgUrlId;
 
 	/** 标题 */
 	@Column(name = "title", length = 100)
@@ -74,7 +74,7 @@ public class ViewShare {
 		super();
 	}
 
-	public ViewShare(String id, String userId, Date creatTime, int clickNum, int likeNum, String imgUrl, String title,
+	public ViewShare(String id, String userId, Date creatTime, int clickNum, int likeNum, String imgUrlId, String title,
 			String message, String status, String address, int selfEvaluation, int otherEvaluation, String commentId) {
 		super();
 		this.id = id;
@@ -82,7 +82,7 @@ public class ViewShare {
 		this.creatTime = creatTime;
 		this.clickNum = clickNum;
 		this.likeNum = likeNum;
-		this.imgUrl = imgUrl;
+		this.imgUrlId = imgUrlId;
 		this.title = title;
 		this.message = message;
 		this.status = status;
@@ -142,14 +142,14 @@ public class ViewShare {
 		return likeNum;
 	}
 
-	public void setImgUrl(String imgUrl) {
+	public void setImgUrlId(String imgUrlId) {
 
-		this.imgUrl = imgUrl;
+		this.imgUrlId = imgUrlId;
 	}
 
-	public String getImgUrl() {
+	public String getImgUrlId() {
 
-		return imgUrl;
+		return imgUrlId;
 	}
 
 	public void setTitle(String title) {
@@ -225,7 +225,7 @@ public class ViewShare {
 	@Override
 	public String toString() {
 		return "ViewShare [id=" + id + ", userId=" + userId + ", creatTime=" + creatTime + ", clickNum=" + clickNum
-				+ ", likeNum=" + likeNum + ", imgUrl=" + imgUrl + ", title=" + title + ", message=" + message
+				+ ", likeNum=" + likeNum + ", imgUrl=" + imgUrlId + ", title=" + title + ", message=" + message
 				+ ", status=" + status + ", address=" + address + ", selfEvaluation=" + selfEvaluation
 				+ ", otherEvaluation=" + otherEvaluation + ", commentId=" + commentId + "]";
 	}

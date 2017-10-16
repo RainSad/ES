@@ -19,19 +19,15 @@ import com.sys.entity.index.ViewShare;
 import com.sys.entity.user.UserInfo;
 
 @Service
-public class ViewShareService extends MysqlBaseDaoImp<ViewShare> {
+public class IndexService extends MysqlBaseDaoImp<ViewShare> {
 
-	Logger log = Logger.getLogger(ViewShareService.class);
+	Logger log = Logger.getLogger(IndexService.class);
 	// 图片存储文件地址
 	@Value("${es.upload.imgPath}")
 	private String saveFilePath;
 
-	// 图片服务器地址
-	@Value("${es.upload.imgRealPath}")
-	private String fileRealPath;
-
 	@SuppressWarnings("unchecked")
-	public ViewShareService() {
+	public IndexService() {
 		Type superclass = getClass().getGenericSuperclass();
 		ParameterizedType type = (ParameterizedType) superclass;
 		entityClass = (Class<ViewShare>) type.getActualTypeArguments()[0];
