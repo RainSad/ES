@@ -35,25 +35,24 @@
                     <ul id="login" class="nav navbar-nav pull-right">
                         <li v-if="seen"><a href="toLogin">登录</a></li>
                         <li v-if="seen"><a href="toRigister">注册</a></li>
-                        <li v-if="user"><a>{{result.nickName}}</a></li>
+                        <li v-if="user"><a></a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </div>
 </div>
-<!--<ol class="breadcrumb">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Library</a></li>
-    <li class="active">Data</li>
-</ol>-->
+
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <img src="2cdac6d4a02d4645ad11bde7c71e6edd.jpg" class="img-responsive">
+            <img src="res/2cdac6d4a02d4645ad11bde7c71e6edd.jpg" width="100%" height="100%" class="img-responsive">
         </div>
+    </div>
+     <hr class="featurette-divider">
+    <div class="row">
         <div id="messageDetail" class="col-md-12">
-            {{message}}
+            {{setHTML}}
         </div>
     </div>
 </div>

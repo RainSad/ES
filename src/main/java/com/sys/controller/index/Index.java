@@ -173,6 +173,7 @@ public class Index {
 	}
 
 	@RequestMapping("index/viewShare/detail/{id}")
+	@ResponseBody
 	public JSONResponse getViewShareDetail(@PathVariable("id") String id) {
 		
 		ViewShare findOne = viewShareRepositoryImp.findOne(id);
