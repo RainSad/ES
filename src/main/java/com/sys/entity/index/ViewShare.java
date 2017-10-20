@@ -1,5 +1,4 @@
 package com.sys.entity.index;
-
 import java.util.Date;
 import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.Column;
@@ -8,74 +7,77 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 
-/**
- * viewShare 实体类 Mon Oct 09 17:12:23 CST 2017 孙文祥
- */
+   /**
+    * viewShare 实体类
+    * Fri Oct 20 18:17:11 CST 2017 孙文祥
+    */ 
 @Component
 @Entity
 @Table(name = "view_share")
-public class ViewShare {
+public class ViewShare{
 
-	/** 分享id */
+	/**分享id*/
 	@Id
 	@Column(name = "id", length = 32)
 	private String id;
 
-	/** 分享用户id */
+	/**分享用户id*/
 	@Column(name = "user_id", length = 32)
 	private String userId;
 
-	/** 创建时间 */
+	/**创建时间*/
 	@Column(name = "creat_time", length = 19)
 	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date creatTime;
 
-	/** 点击次数 */
+	/**点击次数*/
 	@Column(name = "click_num", length = 11)
-	private int clickNum;
+	private Integer clickNum;
 
-	/** 赞次数 */
+	/**赞次数*/
 	@Column(name = "like_num", length = 11)
-	private int likeNum;
+	private Integer likeNum;
 
-	/** 图片地址 */
+	/**图片地址*/
 	@Column(name = "img_url_id", length = 32)
 	private String imgUrlId;
 
-	/** 标题 */
+	/**标题*/
 	@Column(name = "title", length = 100)
 	private String title;
 
-	/** 内容 */
+	/**内容*/
 	@Column(name = "message", length = 5000)
 	private String message;
 
-	/** 状态，0为显示，1为不现实 */
+	/**状态，0为显示，1为不现实*/
 	@Column(name = "status", length = 2)
 	private String status;
 
-	/** 地址 */
+	/**地址*/
 	@Column(name = "address", length = 10)
 	private String address;
 
-	/** 自评分数 */
+	/**自评分数*/
 	@Column(name = "self_evaluation", length = 3)
-	private int selfEvaluation;
+	private Integer selfEvaluation;
 
-	/** 游客评分 */
+	/**游客评分*/
 	@Column(name = "other_evaluation", length = 3)
-	private int otherEvaluation;
+	private Integer otherEvaluation;
 
-	/** 评论id */
+	/**评论id*/
 	@Column(name = "comment_id", length = 32)
 	private String commentId;
 
-	public ViewShare() {
+	/**分享类型，如主页轮播图还是其他，0为主页轮播，1为推荐，2为用户一般分享*/
+	@Column(name = "type", length = 2)
+	private String type;
+
+	public ViewShare(){
 		super();
 	}
-
-	public ViewShare(String id, String userId, Date creatTime, int clickNum, int likeNum, String imgUrlId, String title,
-			String message, String status, String address, int selfEvaluation, int otherEvaluation, String commentId) {
+	public ViewShare(String id, String userId, Date creatTime, Integer clickNum, Integer likeNum, String imgUrlId, String title, String message, String status, String address, Integer selfEvaluation, Integer otherEvaluation, String commentId, String type) {
 		super();
 		this.id = id;
 		this.userId = userId;
@@ -90,143 +92,150 @@ public class ViewShare {
 		this.selfEvaluation = selfEvaluation;
 		this.otherEvaluation = otherEvaluation;
 		this.commentId = commentId;
+		this.type = type;
+	}
+	public void setId(String id){
+
+		this.id=id;
 	}
 
-	public void setId(String id) {
-
-		this.id = id;
-	}
-
-	public String getId() {
+	public String getId(){
 
 		return id;
 	}
 
-	public void setUserId(String userId) {
+	public void setUserId(String userId){
 
-		this.userId = userId;
+		this.userId=userId;
 	}
 
-	public String getUserId() {
+	public String getUserId(){
 
 		return userId;
 	}
 
-	public void setCreatTime(Date creatTime) {
+	public void setCreatTime(Date creatTime){
 
-		this.creatTime = creatTime;
+		this.creatTime=creatTime;
 	}
 
-	public Date getCreatTime() {
+	public Date getCreatTime(){
 
 		return creatTime;
 	}
 
-	public void setClickNum(int clickNum) {
+	public void setClickNum(Integer clickNum){
 
-		this.clickNum = clickNum;
+		this.clickNum=clickNum;
 	}
 
-	public int getClickNum() {
+	public Integer getClickNum(){
 
 		return clickNum;
 	}
 
-	public void setLikeNum(int likeNum) {
+	public void setLikeNum(Integer likeNum){
 
-		this.likeNum = likeNum;
+		this.likeNum=likeNum;
 	}
 
-	public int getLikeNum() {
+	public Integer getLikeNum(){
 
 		return likeNum;
 	}
 
-	public void setImgUrlId(String imgUrlId) {
+	public void setImgUrlId(String imgUrlId){
 
-		this.imgUrlId = imgUrlId;
+		this.imgUrlId=imgUrlId;
 	}
 
-	public String getImgUrlId() {
+	public String getImgUrlId(){
 
 		return imgUrlId;
 	}
 
-	public void setTitle(String title) {
+	public void setTitle(String title){
 
-		this.title = title;
+		this.title=title;
 	}
 
-	public String getTitle() {
+	public String getTitle(){
 
 		return title;
 	}
 
-	public void setMessage(String message) {
+	public void setMessage(String message){
 
-		this.message = message;
+		this.message=message;
 	}
 
-	public String getMessage() {
+	public String getMessage(){
 
 		return message;
 	}
 
-	public void setStatus(String status) {
+	public void setStatus(String status){
 
-		this.status = status;
+		this.status=status;
 	}
 
-	public String getStatus() {
+	public String getStatus(){
 
 		return status;
 	}
 
-	public void setAddress(String address) {
+	public void setAddress(String address){
 
-		this.address = address;
+		this.address=address;
 	}
 
-	public String getAddress() {
+	public String getAddress(){
 
 		return address;
 	}
 
-	public void setSelfEvaluation(int selfEvaluation) {
+	public void setSelfEvaluation(Integer selfEvaluation){
 
-		this.selfEvaluation = selfEvaluation;
+		this.selfEvaluation=selfEvaluation;
 	}
 
-	public int getSelfEvaluation() {
+	public Integer getSelfEvaluation(){
 
 		return selfEvaluation;
 	}
 
-	public void setOtherEvaluation(int otherEvaluation) {
+	public void setOtherEvaluation(Integer otherEvaluation){
 
-		this.otherEvaluation = otherEvaluation;
+		this.otherEvaluation=otherEvaluation;
 	}
 
-	public int getOtherEvaluation() {
+	public Integer getOtherEvaluation(){
 
 		return otherEvaluation;
 	}
 
-	public void setCommentId(String commentId) {
+	public void setCommentId(String commentId){
 
-		this.commentId = commentId;
+		this.commentId=commentId;
 	}
 
-	public String getCommentId() {
+	public String getCommentId(){
 
 		return commentId;
 	}
 
+	public void setType(String type){
+
+		this.type=type;
+	}
+
+	public String getType(){
+
+		return type;
+	}
 	@Override
 	public String toString() {
-		return "ViewShare [id=" + id + ", userId=" + userId + ", creatTime=" + creatTime + ", clickNum=" + clickNum
-				+ ", likeNum=" + likeNum + ", imgUrl=" + imgUrlId + ", title=" + title + ", message=" + message
-				+ ", status=" + status + ", address=" + address + ", selfEvaluation=" + selfEvaluation
-				+ ", otherEvaluation=" + otherEvaluation + ", commentId=" + commentId + "]";
+		return "ViewShare [id=" + id + ", userId=" + userId + ", creatTime=" + creatTime + ", clickNum=" + clickNum + ", likeNum=" + likeNum + ", imgUrlId=" + imgUrlId + ", title=" + title + ", message=" + message + ", status=" + status + ", address=" + address + ", selfEvaluation=" + selfEvaluation + ", otherEvaluation=" + otherEvaluation + ", commentId=" + commentId + ", type=" + type + "]";
 	}
 }
+

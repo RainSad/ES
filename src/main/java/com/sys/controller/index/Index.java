@@ -127,8 +127,13 @@ public class Index {
 
 	/**
 	 * 
-	 * @Description:上传分享内容 @Title: indexUploadMessage @param @param
-	 * titleInput @param @param messageDetail @param @return    设定文件 @return
+	 * @Description:上传分享内容
+	 * @Title: indexUploadMessage 
+	 * @param @param
+	 * titleInput 
+	 * @param @param messageDetail 
+	 * @param @return    设定文件
+	 *  @return
 	 * String    返回类型 @throws
 	 */
 	@RequestMapping("index/upload/message")
