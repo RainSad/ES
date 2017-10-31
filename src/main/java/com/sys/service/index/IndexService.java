@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
@@ -15,7 +16,10 @@ import org.springframework.web.multipart.MultipartFile;
 import com.core.common.utill.IdToolUtil;
 import com.core.dao.MysqlBaseDaoImp;
 import com.sys.controller.index.Index;
+import com.sys.entity.index.ViewComment;
+import com.sys.entity.index.ViewImgUrl;
 import com.sys.entity.index.ViewShare;
+import com.sys.entity.resdata.ViewShareRes;
 import com.sys.entity.user.UserInfo;
 
 @Service
@@ -73,4 +77,34 @@ public class IndexService extends MysqlBaseDaoImp<ViewShare> {
 		}
 	}
 	
+	/**
+	 * 根据数据装配返回结果集，估计以后用不到，暂时不删
+	* @Description: 
+	* @Title: viewShareResTemp 
+	* @param @param param
+	* @param @param param2
+	* @param @param param3
+	* @param @return    设定文件 
+	* @return ViewShareRes    返回类型 
+	* @throws
+	 */
+	public ViewShareRes viewShareResTemp (ViewShare param, List<ViewImgUrl> param2, List<ViewComment> param3){
+		
+		ViewShareRes temp = new ViewShareRes();
+		temp.setAddress(param.getAddress());
+		temp.setClickNum(param.getClickNum());
+		temp.setCommentId(param3);
+		temp.setCreatTime(param.getCreatTime());
+		temp.setId(param.getId());
+		temp.setImgUrlId(param2);
+		temp.setLikeNum(param.getLikeNum());
+		temp.setMessage(param.getMessage());
+		temp.setOtherEvaluation(param.getOtherEvaluation());
+		temp.setSelfEvaluation(param.getSelfEvaluation());
+		temp.setStatus(param.getStatus());
+		temp.setTitle(param.getTitle());
+		temp.setUserId(param.getUserId());
+		
+		return temp;
+	}
 }

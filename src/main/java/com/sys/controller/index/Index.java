@@ -157,17 +157,24 @@ public class Index {
 
 	/**
 	 * 
-	 * @Description: 得到唯一id @Title: getIndexUploadId @param @return    设定文件 @return
-	 * string    返回类型 @throws
+	* @Description: 从后台加载id
+	* @Title: getIndexUploadGetId 
+	* @param @return    设定文件 
+	* @return JSONResponse    返回类型 
+	* @throws
 	 */
-	@RequestMapping("index/upload/getId")
+	@RequestMapping("index/upload/getId/{id}")
 	@ResponseBody
-	public JSONResponse getIndexUploadGetId() {
+	public JSONResponse getIndexUploadGetId(@PathVariable("id") String id) {
+		//重新获取id时删除数据库之前存储的数据
+		if(!id.isEmpty()) {
+			viewShareRepositoryImp.delete(id);
+		}
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("id", IdToolUtil.getUUID());
 		map.put("imgUrlId", IdToolUtil.getUUID());
 		map.put("commentId", IdToolUtil.getUUID());
-		//初始化viewshare表
+		//初始化viewshare表，不初始化，外键关联的viewImgUrl表和comment表无法插入数据
 		ViewShare entity = new ViewShare();
 		entity.setId(map.get("id"));
 		entity.setImgUrlId(map.get("imgUrlId"));

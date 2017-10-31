@@ -301,7 +301,16 @@ function AjaxSubmit(url, info) {
  * @returns
  */
 function getIndexUploadId() {
-    $.getJSON("index/upload/getId", function (data) {
+	//加载id
+	var url = "index/upload/getId";
+	//重置id，重置时需要传入id，删除数据库存储的数据
+	var urlReset = "index/upload/getId/" + vm2.info.id;
+	
+	var temp = url;
+	if(vm2.info.id){
+		temp = urlReset;
+	}
+    $.getJSON(temp, function (data) {
         if (data.status == 1) {
             vm2.info.id = data.data.id;
             vm2.info.imgUrlId = data.data.imgUrlId;
