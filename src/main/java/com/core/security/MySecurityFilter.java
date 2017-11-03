@@ -55,7 +55,7 @@ public class MySecurityFilter extends AbstractSecurityInterceptor implements Fil
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)
 			throws IOException, ServletException {
 		FilterInvocation fi = new FilterInvocation(req, res, chain);
-		log.info("--------MySecurityFilter--------");
+		log.debug("--------MySecurityFilter--------");
 		invok(fi);
 	}
 
@@ -72,7 +72,7 @@ public class MySecurityFilter extends AbstractSecurityInterceptor implements Fil
 		// 用户拥有的权限
 		// 2) GrantedAuthority
 		// Collection<GrantedAuthority> authenticated.getAuthorities()
-		log.info("用户发送请求！ ");
+		log.debug("用户发送请求！ ");
 		InterceptorStatusToken token = null;
 
 		token = super.beforeInvocation(fi);

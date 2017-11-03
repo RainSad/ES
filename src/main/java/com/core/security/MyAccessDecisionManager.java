@@ -33,12 +33,12 @@ public class MyAccessDecisionManager implements AccessDecisionManager {
 			throws AccessDeniedException, InsufficientAuthenticationException {
 		// TODO Auto-generated method stub
 		// 假设相应资源没有找到角色 则放行
-		if (configAttributes == null) {
+		if (configAttributes.isEmpty()) {
 
 			return;
 		}
 
-		log.info("object is a URL:" + object.toString()); // object is a URL.
+		log.debug("object is a URL:" + object.toString()); // object is a URL.
 		Iterator<ConfigAttribute> ite = configAttributes.iterator();
 		while (ite.hasNext()) {
 			ConfigAttribute ca = ite.next();
