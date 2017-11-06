@@ -5,12 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Resource;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import com.alibaba.fastjson.JSON;
@@ -74,11 +71,12 @@ public class MySecurityDaoImp {
 		List<String> roleNames = new ArrayList<String>();
 		// 存储角色查询结果
 		List<SysRole> listRole = (List<SysRole>) sysRoleRepositoryImp.findAll();
-
+		log.debug("查询的角色:" + JSON.toJSONString(listRole));
 		// 循环存储查询结果,存储角色与对应的资源url
 		for (SysRole temp : listRole) {
 			roleNames.add(temp.getRoleCode());
 			List<SysResources> urlResourceTemp = sysResourcesRepositoryImp.findRole(temp.getId());
+			log.debug("根据查询到的角色得到资源:" + JSON.toJSONString(urlResourceTemp));
 			roletypes.put(temp.getRoleCode(), urlResourceTemp);
 		}
 		log.debug("权限资源相应关系:" + JSON.toJSONString(roletypes));

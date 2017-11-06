@@ -33,7 +33,7 @@ public class Forward {
 		return "index/index";
 	}
 	
-	@RequestMapping("/toIndex")
+	@RequestMapping("toIndex")
 	public String toIndex2() {
 		log.debug(" -- > ['toIndex'] --> [ '/toIndex' ]  --> [ '/WEB-INF/view/index/index.html' ]");
 		return "index/index";

@@ -19,14 +19,14 @@ public class LoginUrlEntryPoint implements AuthenticationEntryPoint{
 
 		if (url.indexOf("admin") > 0)
 		{
-			targetUrl = "/admin/login.do";
+			targetUrl = "/admin/login";
 		}
 		else if( url.indexOf("ivcs")>0){
-			targetUrl = "/ivcs/login.do";	
+			targetUrl = "/ivcs/login";	
 		}
 		else
 		{
-			targetUrl = "/login.do";
+			targetUrl = "/login";
 		}
 		targetUrl = request.getContextPath() + targetUrl;
 		response.sendRedirect(targetUrl);

@@ -12,10 +12,10 @@ import com.sys.entity.sys.SysResources;
 public interface SysResourcesRepositoryImp extends Repository<SysResources,String>, CrudRepository<SysResources,String>{
 
 	@Query(value = "SELECT " + 
-			"SysResources.* " + 
+			"sys_resources.* " + 
 			"FROM " + 
-			"SysRoleResources " + 
-			"INNER JOIN SysResources ON SysRoleResources.resources_id = SysResources.id " + 
-			"WHERE SysRoleResources.role_id=?1", nativeQuery = true)
+			"sys_role_resources " + 
+			"INNER JOIN sys_resources ON sys_role_resources.resources_id = sys_resources.id " + 
+			"WHERE sys_role_resources.role_id=?1", nativeQuery = true)
 	public List<SysResources> findRole(@Param("roleId")String roleId);
 }
