@@ -34,8 +34,8 @@ public class GenEntity {
 	private int startWrite = 10; // 生成包名 生成包名的时候读取的位置 main.java.com.sys.entity.sys -> com.sys.entity.sys
 									// 由于maven包名自动过滤main.java
 	private String authorName = "孙文祥";// 作者名字
-	private static String dataBaseName = "es";// 数据库名
-	private static String dataTableName = "view_share"; // 需要单独生成的表名，如果选择了根据数据库表生成所有的表，可以不用填
+	private static String dataBaseName = "test_nms";// 数据库名
+	private static String dataTableName = "pu"; // 需要单独生成的表名，如果选择了根据数据库表生成所有的表，可以不用填
 	private static boolean f_exportAll = false;// 是否根据数据库中的表生成所有的实体
 	private boolean f_constructor = true;// 是否生成构造方法
 	private boolean f_hibernate_annotation = true; // 是否生成hibernate注解
@@ -46,10 +46,10 @@ public class GenEntity {
 	private static boolean f_print_table = true;// 是否打印表名
 
 	// 数据库连接
-	private static final String URL = "jdbc:mysql://localhost:3306/" + dataBaseName
+	private static final String URL = "jdbc:mysql://192.168.1.120:3306/" + dataBaseName
 			+ "?useUnicode=true&characterEncoding=utf-8&useSSL=false";
 	private static final String NAME = "root";
-	private static final String PASS = "sun123";
+	private static final String PASS = "czg";
 	private static final String DRIVER = "com.mysql.jdbc.Driver";
 
 	private String[] colnames; // 列名数组

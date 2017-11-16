@@ -1,7 +1,14 @@
 package com.sys.entity.sys;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
+
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -14,7 +21,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Entity
 @Table(name = "sys_user")
-public class SysUser {
+public class SysUser implements UserDetails{
 
 	/** 分享id */
 	@Id
@@ -70,6 +77,8 @@ public class SysUser {
 	/***/
 	@Column(name = "remark", length = 255)
 	private String remark;
+	
+	private List<GrantedAuthority> grantedAuthorityList = new ArrayList<GrantedAuthority>();
 
 	public SysUser() {
 		super();
@@ -222,6 +231,16 @@ public class SysUser {
 
 		return remark;
 	}
+	
+	
+
+	public List<GrantedAuthority> getGrantedAuthorityList() {
+		return grantedAuthorityList;
+	}
+
+	public void setGrantedAuthorityList(List<GrantedAuthority> grantedAuthorityList) {
+		this.grantedAuthorityList = grantedAuthorityList;
+	}
 
 	@Override
 	public String toString() {
@@ -229,5 +248,35 @@ public class SysUser {
 				+ ", password=" + password + ", phone=" + phone + ", email=" + email + ", birthday=" + birthday
 				+ ", geneder=" + geneder + ", regTime=" + regTime + ", deptId=" + deptId + ", status=" + status
 				+ ", remark=" + remark + "]";
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return true;
 	}
 }
