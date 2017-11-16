@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -34,13 +35,20 @@ public class MyUserDetailsService implements UserDetailsService {
 			List<SysRole> findRoleCode = sysRoleRepositoryImp.findRoleCode(user.getId());
 			if(EmptyUtils.isNotEmpty(findRoleCode)) {
 				for(SysRole temp : findRoleCode) {
+					log.info("User is : " + user.getUsername() + "Role is : " + temp.getRoleCode());
 					gList.add(new SimpleGrantedAuthority(temp.getRoleCode()));
 				}
 			}
 		}
-		user.setGrantedAuthorityList(gList);
+		User userDetail = null;
+		if(EmptyUtils.isNotEmpty(gList)) {
+			userDetail = new User(username, user.getPassword(), gList);
+		}else {
+			userDetail = new User(username, user.getPassword(), null);
+		}
 		
-		return user;
+		
+		return userDetail;
 		
 	}
 
