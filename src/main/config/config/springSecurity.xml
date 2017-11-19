@@ -37,7 +37,7 @@
 
 
 	<!-- 首页和登陆不拦截 -->
-	<http pattern="/" security="none" />
+	<!-- <http pattern="/" security="none" /> -->
 	<!-- <http pattern="/index" security="none" /> -->
 	<http pattern="/toLogin" security="none" />
 	<!-- <http pattern="/login" security="none" /> -->

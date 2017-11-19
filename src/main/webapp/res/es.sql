@@ -4221,7 +4221,7 @@ CREATE TABLE `sys_log` (
   `req_url` varchar(64) DEFAULT NULL COMMENT '请求地址',
   `login_addr` varchar(20) DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
-  `end_time` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `end_time` datetime DEFAULT NULL ,
   `remark` varchar(255) DEFAULT NULL COMMENT '描述',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

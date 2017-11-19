@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.data.repository.CrudRepository;
 
 import com.sys.entity.index.ViewComment;
-import com.sys.entity.index.ViewImgUrl;
 
 public interface ViewCommentUrlRepositoryImp extends CrudRepository<ViewComment, String> {
 

@@ -18,4 +18,8 @@ public interface SysResourcesRepositoryImp extends Repository<SysResources,Strin
 			"INNER JOIN sys_resources ON sys_role_resources.resources_id = sys_resources.id " + 
 			"WHERE sys_role_resources.role_id=?1", nativeQuery = true)
 	public List<SysResources> findRole(@Param("roleId")String roleId);
+	
+//	@Query(value = "SELECT t FROM sysRoleResources t INNER JOIN " + 
+//			"sysResources b ON t.resourcesId = b.id WHERE t.roleId=?1")
+//	public List<SysResources> findRole(@Param("roleId")String roleId);
 }

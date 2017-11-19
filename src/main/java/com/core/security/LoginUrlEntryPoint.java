@@ -9,28 +9,31 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 
-public class LoginUrlEntryPoint implements AuthenticationEntryPoint{
+import com.core.common.canstant.Canstant;
+import com.core.common.utill.EmptyUtils;
+
+public class LoginUrlEntryPoint implements AuthenticationEntryPoint {
 
 	@Override
-	public void commence(HttpServletRequest request, HttpServletResponse response,
-			AuthenticationException arg2) throws IOException, ServletException {
+	public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException arg2)
+			throws IOException, ServletException {
 		String targetUrl = null;
 		String url = request.getRequestURI();
 
-		if (url.indexOf("admin") > 0)
-		{
+		SysUserSecurity user = (SysUserSecurity) request.getSession().getAttribute(Canstant.USER_INFO);
+		// System.out.println(user.getUsername());
+		if (EmptyUtils.isEmpty(user)) {
+			targetUrl = "/toLogin";
+		} else if (url.indexOf("admin") > 0) {
 			targetUrl = "/admin/login";
-		}
-		else if( url.indexOf("ivcs")>0){
-			targetUrl = "/ivcs/login";	
-		}
-		else
-		{
+		} else if (url.indexOf("ivcs") > 0) {
+			targetUrl = "/ivcs/login";
+		} else {
 			targetUrl = "/login";
 		}
 		targetUrl = request.getContextPath() + targetUrl;
 		response.sendRedirect(targetUrl);
-		
+
 	}
 
 }
